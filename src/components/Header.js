@@ -41,7 +41,7 @@ export default function Header() {
                                 alt="Flowbite Logo"
                             /> */}
                         <span className="self-center font-extrabold text-2xl  whitespace-nowrap dark:text-white">
-                            HOSPITAL.WEB
+                            Health<span className="text-red-600">-</span>Connect
                         </span>
                     </a>
                     {
