@@ -1,218 +1,190 @@
 
 export const categories = [
-    "Cardiology",
-    "Neurology",
-    "Orthopedics",
-    "Pediatrics",
-    "Dermatology",
-    "Gastroenterology",
-    "Oncology",
-    "Pulmonology",
-    "Endocrinology",
-    "Ophthalmology",
-    "Psychiatry",
-    "Rheumatology",
-    "Urology",
-    "Obstetrics and Gynecology",
-    "Nephrology",
-    "Hematology",
-    "ENT (Ear, Nose, Throat)",
-    "General Surgery",
-    "Plastic Surgery",
-    "Anesthesiology",
-    "Radiology",
-    "Allergy and Immunology",
-    "Family Medicine",
-    "Internal Medicine",
-    "Infectious Disease",
-    "Geriatrics",
-    "Sports Medicine",
-    "Emergency Medicine",
-    "Podiatry",
-    "Pain Management"
+  "Cardiology",
+  "Neurology",
+  "Orthopedics",
+  "Pediatrics",
+  "Dermatology",
+  "Gastroenterology",
+  "Oncology",
+  "Pulmonology",
+  "Endocrinology",
+  "Ophthalmology",
+  "Psychiatry",
+  "Rheumatology",
+  "Urology",
+  "Obstetrics and Gynecology",
+  "Nephrology",
+  "Hematology",
+  "ENT (Ear, Nose, Throat)",
+  "General Surgery",
+  "Plastic Surgery",
+  "Anesthesiology",
+  "Radiology",
+  "Allergy and Immunology",
+  "Family Medicine",
+  "Internal Medicine",
+  "Infectious Disease",
+  "Geriatrics",
+  "Sports Medicine",
+  "Emergency Medicine",
+  "Podiatry",
+  "Pain Management"
 ];
 
 export const doctors = [
   {
-    name: "Dr. John Smith",
-    appointmentTime: "9:00 AM - 4:00 PM",
-    fees: "$100",
-    category: "Cardiology",
-    hospital: "City Hospital",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Emily Davis",
-    appointmentTime: "10:00 AM - 6:00 PM",
-    fees: "$120",
-    category: "Neurology",
-    hospital: "Green Valley Hospital",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Michael Chen",
-    appointmentTime: "8:00 AM - 3:00 PM",
-    fees: "$90",
-    category: "Orthopedics",
-    hospital: "Central Medical Center",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Sarah Brown",
-    appointmentTime: "11:00 AM - 5:00 PM",
-    fees: "$110",
-    category: "Pediatrics",
-    hospital: "River City Children's Hospital",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Olivia Martinez",
-    appointmentTime: "1:00 PM - 7:00 PM",
-    fees: "$130",
-    category: "Dermatology",
-    hospital: "Skin and Health Clinic",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. David Lee",
-    appointmentTime: "9:30 AM - 4:30 PM",
-    fees: "$95",
-    category: "Gastroenterology",
-    hospital: "Downtown Health Center",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Emma Wilson",
-    appointmentTime: "8:00 AM - 2:00 PM",
-    fees: "$125",
-    category: "Oncology",
-    hospital: "Cancer Care Institute",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Jacob Patel",
-    appointmentTime: "12:00 PM - 6:00 PM",
-    fees: "$115",
-    category: "Pulmonology",
-    hospital: "Lung Health Center",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Sophia Garcia",
-    appointmentTime: "10:00 AM - 5:00 PM",
-    fees: "$100",
-    category: "Endocrinology",
-    hospital: "Endocrine Health Hospital",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Daniel Kim",
-    appointmentTime: "9:00 AM - 3:00 PM",
-    fees: "$110",
-    category: "Ophthalmology",
-    hospital: "Vision Health Clinic",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Aisha Malik",
-    appointmentTime: "8:30 AM - 2:30 PM",
-    fees: "$85",
-    category: "Psychiatry",
-    hospital: "Mental Wellness Center",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Ethan Ross",
-    appointmentTime: "11:00 AM - 7:00 PM",
-    fees: "$150",
-    category: "Rheumatology",
-    hospital: "Arthritis and Joint Center",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Hannah Clarke",
+    id: 1,
+    name: "Dr. Emily Johnson",
     appointmentTime: "9:00 AM - 5:00 PM",
-    fees: "$95",
-    category: "Urology",
-    hospital: "City Urology Clinic",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Liam Patel",
-    appointmentTime: "10:00 AM - 4:00 PM",
-    fees: "$130",
-    category: "Obstetrics and Gynecology",
-    hospital: "Women's Health Hospital",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Noor Ali",
-    appointmentTime: "8:00 AM - 1:00 PM",
     fees: "$120",
-    category: "Nephrology",
-    hospital: "Kidney Care Center",
+    category: "Cardiologist",
+    hospital: "Heart Care Hospital",
     gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
+    image: "https://img.freepik.com/free-photo/portrait-young-female-doctor-wearing-white-coat_23-2148424873.jpg"
   },
   {
-    name: "Dr. William Zhao",
-    appointmentTime: "12:00 PM - 6:00 PM",
-    fees: "$100",
-    category: "Hematology",
-    hospital: "Blood and Health Institute",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Grace Thompson",
-    appointmentTime: "9:00 AM - 5:30 PM",
-    fees: "$90",
-    category: "ENT (Ear, Nose, Throat)",
-    hospital: "Specialized ENT Center",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Lucas Nguyen",
-    appointmentTime: "7:30 AM - 3:30 PM",
-    fees: "$110",
-    category: "General Surgery",
-    hospital: "City General Hospital",
-    gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
-  },
-  {
-    name: "Dr. Zoe King",
-    appointmentTime: "1:00 PM - 8:00 PM",
-    fees: "$140",
-    category: "Plastic Surgery",
-    hospital: "Aesthetic and Reconstructive Clinic",
-    gender: "Female",
-    image: "https://img.freepik.com/free-icon/doctor_318-117756.jpg"
-  },
-  {
-    name: "Dr. Jackson Rivera",
+    id: 2,
+    name: "Dr. James Carter",
     appointmentTime: "10:00 AM - 6:00 PM",
-    fees: "$105",
-    category: "Anesthesiology",
-    hospital: "Central Medical Center",
+    fees: "$150",
+    category: "Dermatologist",
+    hospital: "Skin Health Clinic",
     gender: "Male",
-    image: "https://img.freepik.com/free-icon/doctor_318-117757.jpg"
+    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg"
+  },
+  {
+    id: 3,
+    name: "Dr. Sarah Lee",
+    appointmentTime: "8:00 AM - 3:00 PM",
+    fees: "$100",
+    category: "Orthopedist",
+    hospital: "City Orthopedic Hospital",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg"
+  },
+  {
+    id: 4,
+    name: "Dr. Michael Chen",
+    appointmentTime: "11:00 AM - 7:00 PM",
+    fees: "$200",
+    category: "Neurologist",
+    hospital: "Neuro Health Institute",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/portrait-young-female-doctor-wearing-white-coat_23-2148424873.jpg"
+  },
+  {
+    id: 5,
+    name: "Dr. Olivia Martinez",
+    appointmentTime: "7:00 AM - 3:00 PM",
+    fees: "$90",
+    category: "Pediatrician",
+    hospital: "Children's Hospital",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg"
+  },
+  {
+    id: 6,
+    name: "Dr. Daniel Lopez",
+    appointmentTime: "1:00 PM - 8:00 PM",
+    fees: "$130",
+    category: "Ophthalmologist",
+    hospital: "Vision Care Clinic",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/happy-young-doctor_23-2148427365.jpg"
+  },
+  {
+    id: 7,
+    name: "Dr. Anna Thompson",
+    appointmentTime: "9:00 AM - 5:00 PM",
+    fees: "$120",
+    category: "Oncologist",
+    hospital: "Cancer Care Hospital",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/young-female-doctor-portrait_23-2148432575.jpg"
+  },
+  {
+    id: 8,
+    name: "Dr. Liam Anderson",
+    appointmentTime: "10:00 AM - 4:00 PM",
+    fees: "$110",
+    category: "Psychiatrist",
+    hospital: "Mental Wellness Center",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/male-doctor-posing-with-arms-crossed_23-2148432343.jpg"
+  },
+  {
+    id: 9,
+    name: "Dr. Sophia Brown",
+    appointmentTime: "8:30 AM - 2:30 PM",
+    fees: "$140",
+    category: "Endocrinologist",
+    hospital: "Endocrine Health Institute",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/female-doctor-with-stethoscope_23-2148764781.jpg"
+  },
+  {
+    id: 10,
+    name: "Dr. William Clark",
+    appointmentTime: "10:00 AM - 6:00 PM",
+    fees: "$115",
+    category: "Pulmonologist",
+    hospital: "Lung Health Clinic",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/doctor-wearing-white-coat-stethoscope_23-2148764565.jpg"
+  },
+  {
+    id: 11,
+    name: "Dr. Mia Adams",
+    appointmentTime: "7:30 AM - 3:30 PM",
+    fees: "$130",
+    category: "Plastic Surgeon",
+    hospital: "Aesthetic Surgery Center",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/portrait-confident-doctor-with-arms-crossed_23-2148762453.jpg"
+  },
+  {
+    id: 12,
+    name: "Dr. Benjamin Scott",
+    appointmentTime: "9:00 AM - 5:00 PM",
+    fees: "$125",
+    category: "Urologist",
+    hospital: "City Urology Hospital",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/young-doctor-smiling-hospital_23-2148752385.jpg"
+  },
+  {
+    id: 13,
+    name: "Dr. Ava Rodriguez",
+    appointmentTime: "1:00 PM - 9:00 PM",
+    fees: "$125",
+    category: "General Surgeon",
+    hospital: "City Surgical Hospital",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/young-female-surgeon-standing-theater_23-2148422143.jpg"
+  },
+  {
+    id: 14,
+    name: "Dr. Ethan Harris",
+    appointmentTime: "8:00 AM - 3:00 PM",
+    fees: "$140",
+    category: "ENT Specialist",
+    hospital: "Specialized ENT Center",
+    gender: "Male",
+    image: "https://img.freepik.com/free-photo/portrait-young-handsome-doctor_23-2148432167.jpg"
+  },
+  {
+    id: 15,
+    name: "Dr. Isabella Evans",
+    appointmentTime: "10:00 AM - 5:00 PM",
+    fees: "$130",
+    category: "Gynecologist",
+    hospital: "Women's Health Center",
+    gender: "Female",
+    image: "https://img.freepik.com/free-photo/young-female-doctor-standing-clinic_23-2148425327.jpg"
   }
 ];
+
+
 
 
