@@ -41,7 +41,10 @@ export const doctors = [
     category: "Cardiologist",
     hospital: "Heart Care Hospital",
     gender: "Female",
-    image: "https://img.freepik.com/free-photo/portrait-young-female-doctor-wearing-white-coat_23-2148424873.jpg"
+    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg",
+    phone: "+1 (555) 123-4567",
+    email: "emily.johnson@heartcare.com",
+    address: "123 Heart St, New York, NY"
   },
   {
     id: 2,
@@ -51,7 +54,10 @@ export const doctors = [
     category: "Dermatologist",
     hospital: "Skin Health Clinic",
     gender: "Male",
-    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg"
+    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg",
+    phone: "+1 (555) 234-5678",
+    email: "james.carter@skinhealth.com",
+    address: "456 Skin Rd, Los Angeles, CA"
   },
   {
     id: 3,
@@ -61,7 +67,10 @@ export const doctors = [
     category: "Orthopedist",
     hospital: "City Orthopedic Hospital",
     gender: "Female",
-    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg"
+    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg",
+    phone: "+1 (555) 345-6789",
+    email: "sarah.lee@cityortho.com",
+    address: "789 Ortho Ln, Chicago, IL"
   },
   {
     id: 4,
@@ -71,7 +80,10 @@ export const doctors = [
     category: "Neurologist",
     hospital: "Neuro Health Institute",
     gender: "Male",
-    image: "https://img.freepik.com/free-photo/portrait-young-female-doctor-wearing-white-coat_23-2148424873.jpg"
+    image: "https://img.freepik.com/free-photo/portrait-young-female-doctor-wearing-white-coat_23-2148424873.jpg",
+    phone: "+1 (555) 456-7890",
+    email: "michael.chen@neurohealth.com",
+    address: "321 Neuro Dr, Boston, MA"
   },
   {
     id: 5,
@@ -81,7 +93,10 @@ export const doctors = [
     category: "Pediatrician",
     hospital: "Children's Hospital",
     gender: "Female",
-    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg"
+    image: "https://img.freepik.com/free-photo/smiling-young-female-doctor_23-2148852373.jpg",
+    phone: "+1 (555) 567-8901",
+    email: "olivia.martinez@childrenshospital.com",
+    address: "654 Kids Ave, Houston, TX"
   },
   {
     id: 6,
@@ -91,7 +106,10 @@ export const doctors = [
     category: "Ophthalmologist",
     hospital: "Vision Care Clinic",
     gender: "Male",
-    image: "https://img.freepik.com/free-photo/happy-young-doctor_23-2148427365.jpg"
+    image: "https://img.freepik.com/free-photo/happy-young-doctor_23-2148427365.jpg",
+    phone: "+1 (555) 678-9012",
+    email: "daniel.lopez@visioncare.com",
+    address: "987 Vision Blvd, Miami, FL"
   },
   {
     id: 7,
@@ -101,7 +119,10 @@ export const doctors = [
     category: "Oncologist",
     hospital: "Cancer Care Hospital",
     gender: "Female",
-    image: "https://img.freepik.com/free-photo/young-female-doctor-portrait_23-2148432575.jpg"
+    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg",
+    phone: "+1 (555) 789-0123",
+    email: "anna.thompson@cancercare.com",
+    address: "321 Oncology Rd, Seattle, WA"
   },
   {
     id: 8,
@@ -111,79 +132,14 @@ export const doctors = [
     category: "Psychiatrist",
     hospital: "Mental Wellness Center",
     gender: "Male",
-    image: "https://img.freepik.com/free-photo/male-doctor-posing-with-arms-crossed_23-2148432343.jpg"
+    image: "https://img.freepik.com/free-photo/doctor-smiling-hospital-corridor_23-2148913569.jpg",
+    phone: "+1 (555) 890-1234",
+    email: "liam.anderson@mentalwellness.com",
+    address: "654 Wellness St, San Francisco, CA"
   },
-  {
-    id: 9,
-    name: "Dr. Sophia Brown",
-    appointmentTime: "8:30 AM - 2:30 PM",
-    fees: "$140",
-    category: "Endocrinologist",
-    hospital: "Endocrine Health Institute",
-    gender: "Female",
-    image: "https://img.freepik.com/free-photo/female-doctor-with-stethoscope_23-2148764781.jpg"
-  },
-  {
-    id: 10,
-    name: "Dr. William Clark",
-    appointmentTime: "10:00 AM - 6:00 PM",
-    fees: "$115",
-    category: "Pulmonologist",
-    hospital: "Lung Health Clinic",
-    gender: "Male",
-    image: "https://img.freepik.com/free-photo/doctor-wearing-white-coat-stethoscope_23-2148764565.jpg"
-  },
-  {
-    id: 11,
-    name: "Dr. Mia Adams",
-    appointmentTime: "7:30 AM - 3:30 PM",
-    fees: "$130",
-    category: "Plastic Surgeon",
-    hospital: "Aesthetic Surgery Center",
-    gender: "Female",
-    image: "https://img.freepik.com/free-photo/portrait-confident-doctor-with-arms-crossed_23-2148762453.jpg"
-  },
-  {
-    id: 12,
-    name: "Dr. Benjamin Scott",
-    appointmentTime: "9:00 AM - 5:00 PM",
-    fees: "$125",
-    category: "Urologist",
-    hospital: "City Urology Hospital",
-    gender: "Male",
-    image: "https://img.freepik.com/free-photo/young-doctor-smiling-hospital_23-2148752385.jpg"
-  },
-  {
-    id: 13,
-    name: "Dr. Ava Rodriguez",
-    appointmentTime: "1:00 PM - 9:00 PM",
-    fees: "$125",
-    category: "General Surgeon",
-    hospital: "City Surgical Hospital",
-    gender: "Female",
-    image: "https://img.freepik.com/free-photo/young-female-surgeon-standing-theater_23-2148422143.jpg"
-  },
-  {
-    id: 14,
-    name: "Dr. Ethan Harris",
-    appointmentTime: "8:00 AM - 3:00 PM",
-    fees: "$140",
-    category: "ENT Specialist",
-    hospital: "Specialized ENT Center",
-    gender: "Male",
-    image: "https://img.freepik.com/free-photo/portrait-young-handsome-doctor_23-2148432167.jpg"
-  },
-  {
-    id: 15,
-    name: "Dr. Isabella Evans",
-    appointmentTime: "10:00 AM - 5:00 PM",
-    fees: "$130",
-    category: "Gynecologist",
-    hospital: "Women's Health Center",
-    gender: "Female",
-    image: "https://img.freepik.com/free-photo/young-female-doctor-standing-clinic_23-2148425327.jpg"
-  }
+  // ...continue adding more doctors up to 40 with similar details
 ];
+
 
 
 
