@@ -69,8 +69,8 @@ export default function DoctorPage({ isHome }) {
                                             <AvatarFallback>CN</AvatarFallback>
                                         </Avatar>
                                     </div>
-                                    <CardDescription>{doctors.category}</CardDescription>
-                                    <CardDescription>{doctors.hospital}</CardDescription>
+                                    {/* <CardDescription>{doctors.category}</CardDescription> */}
+                                    {/* <CardDescription>{doctors.hospital}</CardDescription> */}
                                     {/* <Button className="border" variant="secondary">Apply</Button> */}
                                 </CardHeader>
                                 <CardFooter className="flex justify-between">
@@ -87,7 +87,7 @@ export default function DoctorPage({ isHome }) {
                                         </CardDescription>
                                     </div>
                                     <Link href={`/doctors/${doctors.id}`}>
-                                        <Button className="border  hover:text-red-600" variant={"secondary"}>Apply</Button>
+                                        <Button className="border  hover:text-red-600" variant={"secondary"}>See Detail</Button>
                                     </Link>
                                 </CardFooter>
                             </Card>)

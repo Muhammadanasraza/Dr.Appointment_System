@@ -140,6 +140,138 @@ export const doctors = [
   // ...continue adding more doctors up to 40 with similar details
 ];
 
+export const appointments = [
+  {
+    user: {
+      name: "John Doe",
+      email: "john.doe@example.com"
+    },
+    appointmentTime: "10:00 AM",
+    status: "Confirmed",
+    appointmentDate: "2024-11-10",
+    doctor: {
+      name: "Dr. Emily Johnson",
+      hospital: "Heart Care Hospital"
+    }
+  },
+  {
+    user: {
+      name: "Jane Smith",
+      email: "jane.smith@example.com"
+    },
+    appointmentTime: "2:00 PM",
+    status: "Pending",
+    appointmentDate: "2024-11-12",
+    doctor: {
+      name: "Dr. James Carter",
+      hospital: "Skin Health Clinic"
+    }
+  },
+  {
+    user: {
+      name: "David Brown",
+      email: "david.brown@example.com"
+    },
+    appointmentTime: "11:00 AM",
+    status: "Confirmed",
+    appointmentDate: "2024-11-13",
+    doctor: {
+      name: "Dr. Sarah Lee",
+      hospital: "City Orthopedic Hospital"
+    }
+  },
+  {
+    user: {
+      name: "Emma Wilson",
+      email: "emma.wilson@example.com"
+    },
+    appointmentTime: "3:30 PM",
+    status: "Cancelled",
+    appointmentDate: "2024-11-14",
+    doctor: {
+      name: "Dr. Michael Chen",
+      hospital: "Neuro Health Institute"
+    }
+  },
+  {
+    user: {
+      name: "Michael White",
+      email: "michael.white@example.com"
+    },
+    appointmentTime: "9:00 AM",
+    status: "Confirmed",
+    appointmentDate: "2024-11-15",
+    doctor: {
+      name: "Dr. Olivia Martinez",
+      hospital: "Children's Hospital"
+    }
+  },
+  {
+    user: {
+      name: "Sophia Clark",
+      email: "sophia.clark@example.com"
+    },
+    appointmentTime: "4:00 PM",
+    status: "Pending",
+    appointmentDate: "2024-11-16",
+    doctor: {
+      name: "Dr. Daniel Lopez",
+      hospital: "Vision Care Clinic"
+    }
+  },
+  {
+    user: {
+      name: "James Evans",
+      email: "james.evans@example.com"
+    },
+    appointmentTime: "1:30 PM",
+    status: "Confirmed",
+    appointmentDate: "2024-11-17",
+    doctor: {
+      name: "Dr. Anna Thompson",
+      hospital: "Cancer Care Hospital"
+    }
+  },
+  {
+    user: {
+      name: "Olivia Walker",
+      email: "olivia.walker@example.com"
+    },
+    appointmentTime: "10:30 AM",
+    status: "Confirmed",
+    appointmentDate: "2024-11-18",
+    doctor: {
+      name: "Dr. Liam Anderson",
+      hospital: "Mental Wellness Center"
+    }
+  },
+  {
+    user: {
+      name: "Benjamin Davis",
+      email: "benjamin.davis@example.com"
+    },
+    appointmentTime: "3:00 PM",
+    status: "Pending",
+    appointmentDate: "2024-11-19",
+    doctor: {
+      name: "Dr. Sophia Brown",
+      hospital: "Endocrine Health Institute"
+    }
+  },
+  {
+    user: {
+      name: "Lily Harris",
+      email: "lily.harris@example.com"
+    },
+    appointmentTime: "9:30 AM",
+    status: "Cancelled",
+    appointmentDate: "2024-11-20",
+    doctor: {
+      name: "Dr. William Clark",
+      hospital: "Lung Health Clinic"
+    }
+  }
+];
 
 
 
