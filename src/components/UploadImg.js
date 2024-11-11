@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
-import React, {useEffect, useState} from 'react';
-import {useDropzone} from 'react-dropzone';
+import React, { useEffect, useState } from 'react';
+import { useDropzone } from 'react-dropzone';
 
 const thumbsContainer = {
   display: 'flex',
@@ -37,7 +37,7 @@ const img = {
 
 export default function UploadImg(props) {
   const [files, setFiles] = useState([]);
-  const {getRootProps, getInputProps} = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     accept: {
       'image/*': []
     },
@@ -47,11 +47,12 @@ export default function UploadImg(props) {
       })));
     }
   });
-  
+
   const thumbs = files.map(file => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
         <Image
+          alt={file.name}
           src={file.preview}
           style={img}
           // Revoke data uri after image is loaded
@@ -68,7 +69,7 @@ export default function UploadImg(props) {
 
   return (
     <section className="container ">
-      <div {...getRootProps({className: 'dropzone'})}>
+      <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
         <p>Drag 'n' drop some files here, or click to select files</p>
       </div>
