@@ -1,4 +1,5 @@
 "use client"
+import Image from 'next/image';
 import React, {useEffect, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 
@@ -50,7 +51,7 @@ export default function UploadImg(props) {
   const thumbs = files.map(file => (
     <div style={thumb} key={file.name}>
       <div style={thumbInner}>
-        <img
+        <Image
           src={file.preview}
           style={img}
           // Revoke data uri after image is loaded
