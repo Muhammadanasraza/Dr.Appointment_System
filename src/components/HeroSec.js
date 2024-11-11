@@ -41,12 +41,14 @@ export default function HeroSec() {
                                     </svg>
                                 </Button>
                             </Link>
-                            <Button variant="secondary"
-                                href="#"
-                                className=" py-6 font-semibold border border-black"
-                            >
-                                Apply as Doctor
-                            </Button>
+                            <Link href={"/doctors/applyasdoctor"}>
+                                <Button variant="secondary"
+                                    href="#"
+                                    className=" py-6 font-semibold border border-black"
+                                >
+                                    Apply as Doctor
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                     <div className="hidden relative  lg:mt-0 lg:col-span-5 lg:flex">

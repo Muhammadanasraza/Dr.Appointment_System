@@ -26,7 +26,7 @@ import Link from "next/link"
 
 export default function Header() {
 
-    const islogin = false
+    const islogin = true
 
     return (
         <>
@@ -47,12 +47,15 @@ export default function Header() {
                     </a>
                     {
                         !islogin ?
-                            <Link href="singin">
+                            <div>
 
-                                <Button>
-                                    SignIn
-                                </Button>
-                            </Link>
+                                <Link href="/signin">
+
+                                    <Button>
+                                        SignIn
+                                    </Button>
+                                </Link>
+                            </div>
                             :
 
                             <DropdownMenu>

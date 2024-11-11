@@ -84,7 +84,7 @@ export default function Doctor({ isHome }) {
                                 </CardHeader>
                                 <CardHeader>
                                     <Link href={`/doctors/${doctors.id}`}>
-                                        <Button  className="border hover:text-red-600" variant="secondary">Apply</Button>
+                                        <Button  className="border hover:text-red-600" variant="secondary">See Detail</Button>
                                     </Link>
                                 </CardHeader>
 

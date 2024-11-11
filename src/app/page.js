@@ -12,7 +12,7 @@ export default function Home() {
     <div className="">
 
 
-      <HeroSec />
+      <HeroSec islogin={true}/>
       <Doctor  isHome={true} />  
 
       
