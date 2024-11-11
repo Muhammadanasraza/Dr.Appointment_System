@@ -71,7 +71,7 @@ export default function UploadImg(props) {
     <section className="container ">
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>It&#39;s a great day!</p>
       </div>
       <aside style={thumbsContainer}>
         {thumbs}
