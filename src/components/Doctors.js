@@ -38,7 +38,7 @@ export default function Doctor({ isHome }) {
                     {
                         isHome ?
                             <Link href={"/doctors"}>
-                                <Button className="px-20">Show All </Button>
+                                <Button className="px-20 max-sm:px-6 ">Show All </Button>
                             </Link> :
                             <Select>
                                 <SelectTrigger className="w-[180px]">
@@ -57,12 +57,12 @@ export default function Doctor({ isHome }) {
                             </Select>
                     }
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3  sm:grid-cols-2  lg:grid-col-4  gap-5 my-10 justify-between container">
+                <div className="grid grid-cols-1 md:grid-cols-3 max-sm:px-3 sm:grid-cols-2  lg:grid-col-4  gap-5 my-10 justify-between container">
 
                     {
                         filtered.map((doctors, index) => (
 
-                            <Card key={index} className="w-[400px] mx-auto flex justify-between ">
+                            <Card key={index} className="w-[400px] max-sm:w-auto mx-auto flex justify-between ">
                                 <CardHeader >
                                     <div className="flex items-center gap-3">
 
