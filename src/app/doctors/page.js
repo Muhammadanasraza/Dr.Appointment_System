@@ -59,7 +59,7 @@ export default function DoctorPage({ isHome }) {
                     {
                         filtered.map((doctors, index) => (
 
-                            <Card key={index} className="w-[400px] mx-auto  ">
+                            <Card key={index} className="w-[400px] max-sm:w-[350px] mx-auto  ">
                                 <CardHeader>
                                     <div className="flex justify-between items-center">
 
