@@ -21,12 +21,16 @@ import {
     AvatarImage,
 } from "@/components/ui/avatar"
 import Link from "next/link"
+import { auth } from "../../auth"
 
 
 
-export default function Header() {
+export default async function Header() {
 
-    const islogin = true
+    const session = await auth();
+
+    console.log("session me kiya hai bhai=>>>",session)
+    const islogin = false
 
     return (
         <>
