@@ -1,10 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { signIn } from "../../../auth";
+import { auth, signIn } from "../../../auth";
+import { redirect } from "next/navigation";
 
 
 
 
-export default function Signin() {
+export default async function Signin() {
+
+    const session = await auth();
+    if(session) redirect("/")
 
     return (
         <div className="min-h-screen items-center justify-center mx-auto  text-center">

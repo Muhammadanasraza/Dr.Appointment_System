@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/avatar"
 import Link from "next/link"
 import { auth } from "../../auth"
+import LogoutButton from "./Logout"
 
 
 
@@ -29,8 +30,7 @@ export default async function Header() {
 
     const session = await auth();
 
-    console.log("session me kiya hai bhai=>>>",session)
-    const islogin = false
+    // console.log("session me kiya hai bhai=>>>",session)
 
     return (
         <>
@@ -50,50 +50,51 @@ export default async function Header() {
                         </span>
                     </a>
                     {
-                        !islogin ?
+                        session ?
                             <div>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        {/* <Button variant="outline">Open</Button> */}
+                                        <Avatar>
+                                            <AvatarImage src={session.user.image} alt="@shadcn" />
+                                            <AvatarFallback>CN</AvatarFallback>
+                                        </Avatar>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-56">
+                                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuGroup>
+                                            <Link href="/profile">
+                                                <DropdownMenuItem>
+                                                    Profile
+                                                    <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
+                                                </DropdownMenuItem>
+                                            </Link>
+                                            <Link href="/appointment">
+                                                <DropdownMenuItem>
+                                                    My Appointment
+                                                    <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
+                                                </DropdownMenuItem>
+                                            </Link>
+                                        </DropdownMenuGroup>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem >
+                                            Log out
+                                            <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
+                                        </DropdownMenuItem>
+                                        {/* <LogoutButton /> */}
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
 
-                                <Link href="/signin">
-
-                                    <Button>
-                                        SignIn
-                                    </Button>
-                                </Link>
                             </div>
                             :
+                            <Link href="/signin">
 
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    {/* <Button variant="outline">Open</Button> */}
-                                    <Avatar>
-                                        <AvatarImage src="https://img.freepik.com/free-photo/portrait-3d-male-doctor_23-2151107019.jpg?ga=GA1.1.518592586.1717923796&semt=ais_hybrid" alt="@shadcn" />
-                                        <AvatarFallback>CN</AvatarFallback>
-                                    </Avatar>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-56">
-                                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuGroup>
-                                        <Link href="/profile">
-                                            <DropdownMenuItem>
-                                                Profile
-                                                <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
-                                            </DropdownMenuItem>
-                                        </Link>
-                                        <Link href="/appointment">
-                                            <DropdownMenuItem>
-                                                My Appointment
-                                                <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
-                                            </DropdownMenuItem>
-                                        </Link>
-                                    </DropdownMenuGroup>
-                                    <DropdownMenuSeparator />
-                                    <DropdownMenuItem >
-                                        Log out
-                                        <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+                                <Button>
+                                    SignIn
+                                </Button>
+                            </Link>
+
                     }
 
                 </div>

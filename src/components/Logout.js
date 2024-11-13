@@ -1,17 +1,19 @@
-"use client"
+// "use client"
 
-export default function Logout({ islogin }) {
-    return (
+// import { signOut } from "next-auth/react";
 
-        <>
-            {/* <DropdownMenuItem
-                onChange={() => {
-                    islogin? islogin == "false" : islogin == "true"
-                }}
-            >
-                Log out
-                <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
-            </DropdownMenuItem> */}
-        </>
-    )
-}
+// export default async function LogoutButton() {
+
+//     const  handleLogout =  () =>  {
+//          signOut({ callbackUrl: "/" });
+//     };
+
+//     return (
+//         <div className="hover:bg-red-100 rounded">
+
+//             <button className="pl-2 " onClick={handleLogout} style={{ cursor: 'pointer' }}>
+//                 Logout
+//             </button>
+//         </div>
+//     );
+// }
