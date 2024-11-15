@@ -1,4 +1,3 @@
-
 import { redirect } from "next/navigation"
 import { auth, signIn } from "../../../auth"
 import { Button } from "@/components/ui/button"
