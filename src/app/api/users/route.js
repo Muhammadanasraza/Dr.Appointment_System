@@ -19,6 +19,7 @@ export async function POST(req) {
             error: false,
             msg: "User Reg Successfully",
             user: newUser
+        
         }, { status: 201 })
 
     } catch (e) {
