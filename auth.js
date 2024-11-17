@@ -16,8 +16,6 @@ async function handlelogin(obj) {
     newUser = await newUser.save();
     return newUser;
   }
-
-
 };
 
 
