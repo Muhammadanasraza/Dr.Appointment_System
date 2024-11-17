@@ -1,13 +1,17 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { auth } from "../../auth";
 
 
 
 
 
 
-export default function HeroSec() {
+export default async function HeroSec() {
+
+
+    const session = await auth();
 
     return (
         <>
@@ -41,7 +45,7 @@ export default function HeroSec() {
                                     </svg>
                                 </Button>
                             </Link>
-                            <Link href={"/doctors/applyasdoctor"}>
+                            <Link href={ session? "/doctors/applyasdoctor" : "/signin"}>
                                 <Button variant="secondary"
                                     href="#"
                                     className=" py-6 font-semibold border border-black"

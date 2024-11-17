@@ -70,7 +70,7 @@ export default function DoctorForm() {
           className="w-full max-sm:w-full py-4 mx-auto mt-10 border p-6 bg-white rounded-lg shadow-lg"
         >
 
-          <div className=" grid grid-cols-2 gap-6 space-y-3">
+          <div className=" grid grid-cols-2 gap-6 ">
 
           <div className=" flex flex-col gap-5">
           <FormField

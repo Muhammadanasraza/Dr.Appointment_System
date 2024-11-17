@@ -71,7 +71,7 @@ export default function UploadImg(props) {
     <section className="container ">
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <p>It&#39;s a great day!</p>
+        <p className='cursor-pointer'>&#39;<b>Click Me </b> To Upload_Img!</p>
       </div>
       <aside style={thumbsContainer}>
         {thumbs}

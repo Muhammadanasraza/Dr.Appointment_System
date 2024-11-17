@@ -39,7 +39,20 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return user // Do different verification for other providers that don't have `email_verified`
       }
     },
+    async jwt({ token }) {
+      const user = await handlelogin({ email: token.email })
+      token.roll = user.roll;
+      token._id = user._id
+      return token
+    },
+    session({ session, token }) {
+      session.user.id = token._id;
+      session.user.roll = token.roll
+      return session
+    },
   },
+
+
 })
 
 
