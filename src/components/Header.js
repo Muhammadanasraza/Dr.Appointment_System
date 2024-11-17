@@ -28,6 +28,7 @@ import { auth, signOut } from "../../auth"
 export default async function Header() {
 
     const session = await auth();
+    console.log("sess=>>>", session)
 
     // console.log("session me kiya hai bhai=>>>",session)
 
@@ -49,7 +50,16 @@ export default async function Header() {
                         </span>
                     </a>
                     {
-                        session ?
+                        !session ?
+                            <Link href="/signin">
+
+                                <Button>
+                                    SignIn
+                                </Button>
+                            </Link>
+
+
+                            :
                             <div>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
@@ -77,31 +87,23 @@ export default async function Header() {
                                             </Link>
                                         </DropdownMenuGroup>
                                         <DropdownMenuSeparator />
-                                      
-                                            <form
-                                                action={async () => {
-                                                    "use server"
-                                                    await signOut("google")
-                                                }}
-                                            >
-                                                <button className="pl-2 hover:bg-slate-100 rounded-sm w-full text-left"  type="submit"> Logout</button>
-                                            </form> 
-                                           
-                                            {/* <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut> */}
-                                      
+
+                                        <form
+                                            action={async () => {
+                                                "use server"
+                                                await signOut("google")
+                                            }}
+                                        >
+                                            <button className="pl-2 hover:bg-slate-100 rounded-sm w-full text-left" type="submit"> Logout</button>
+                                        </form>
+
+                                        {/* <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut> */}
+
                                         {/* <LogoutButton /> */}
                                     </DropdownMenuContent>
                                 </DropdownMenu>
 
                             </div>
-                            :
-                            <Link href="/signin">
-
-                                <Button>
-                                    SignIn
-                                </Button>
-                            </Link>
-
                     }
 
                 </div>
