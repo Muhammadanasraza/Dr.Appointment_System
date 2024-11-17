@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/avatar"
 import Link from "next/link"
 import { auth, signOut } from "../../auth"
+import SignOut from "./SignOut"
 
 
 
@@ -88,18 +89,9 @@ export default async function Header() {
                                         </DropdownMenuGroup>
                                         <DropdownMenuSeparator />
 
-                                        <form
-                                            action={async () => {
-                                                "use server"
-                                                await signOut("google")
-                                            }}
-                                        >
-                                            <button className="pl-2 hover:bg-slate-100 rounded-sm w-full text-left" type="submit"> Logout</button>
-                                        </form>
+                                        <SignOut />
 
-                                        {/* <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut> */}
 
-                                        {/* <LogoutButton /> */}
                                     </DropdownMenuContent>
                                 </DropdownMenu>
 
