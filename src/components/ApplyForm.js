@@ -18,6 +18,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import UploadImg from "./UploadImg";
 import { DatePicker } from "./DatePikker";
+import addRequest from "@/action/requests";
+import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required").max(50),
@@ -30,13 +32,13 @@ const formSchema = z.object({
   degree: z.string(),
   specialization: z.string(),
   experience: z.string(),
-  profileImg: z.string().url("Must be a valid URL"),
+  // profileImg: z.string().url("Must be a valid URL"),
   number: z.string().min(10).max(15),
   email: z.string().email("Invalid email format"),
   address: z.string(),
 });
 
-export default function DoctorForm() {
+export default function DoctorForm({ session }) {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -50,15 +52,22 @@ export default function DoctorForm() {
       degree: "",
       specialization: "",
       experience: "",
-      profileImg: "",
+      // profileImg: "",
       number: "",
       email: "",
       address: "",
     },
   });
 
-  function onSubmit(values) {
+ async function onSubmit(values) {
     console.log(values);
+    values.user = session.user._id;
+    await addRequest(values);
+    form.reset()
+    toast({
+      title: "Request Submited Succesfully",
+      description: `Cangratulations `,
+    })
   }
 
   return (
@@ -72,203 +81,203 @@ export default function DoctorForm() {
 
           <div className=" grid grid-cols-2 gap-6 ">
 
-          <div className=" flex flex-col gap-5">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Name</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="bio"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Bio</b></FormLabel>
-                <FormControl>
-                  <Textarea placeholder="Short bio" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="hospital"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Hospital</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Associated hospital" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="fees"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Consultation Fees</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter fees" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="days"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Available Days</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Available days (e.g., Mon-Fri)" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="gender"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Gender</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Gender (Male, Female, Other)" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-           <FormField
-            control={form.control}
-            name="appointmentTime"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Appointment Time</b></FormLabel>
-                <FormControl>
-                  {/* <Input placeholder="Available times (e.g., 9 AM - 5 PM)" {...field} />
+            <div className=" flex flex-col gap-5">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Name</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="bio"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Bio</b></FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Short bio" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="hospital"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Hospital</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Associated hospital" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="fees"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Consultation Fees</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter fees" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="days"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Available Days</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Available days (e.g., Mon-Fri)" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="gender"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Gender</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Gender (Male, Female, Other)" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="appointmentTime"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Appointment Time</b></FormLabel>
+                    <FormControl>
+                      {/* <Input placeholder="Available times (e.g., 9 AM - 5 PM)" {...field} />
                    */}
-                   <DatePicker/>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        
-          </div>
-          <div className="flex flex-col gap-5">
-          <FormField
-            control={form.control}
-            name="degree"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Degree</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Doctor's degree" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="specialization"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Specialization</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Area of specialization" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="experience"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Years of Experience</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Experience in years" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-         
-          <FormField
-            control={form.control}
-            name="number"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Contact Number</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Phone number" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Email</b></FormLabel>
-                <FormControl>
-                  <Input placeholder="Email address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
+                      <DatePicker />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-          <FormField
-            control={form.control}
-            name="address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel><b>Address</b></FormLabel>
-                {/* <FormControl>
+            </div>
+            <div className="flex flex-col gap-5">
+              <FormField
+                control={form.control}
+                name="degree"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Degree</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Doctor's degree" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="specialization"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Specialization</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Area of specialization" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="experience"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Years of Experience</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Experience in years" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="number"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Contact Number</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Phone number" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Email</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Email address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+
+              <FormField
+                control={form.control}
+                name="address"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Address</b></FormLabel>
+                    {/* <FormControl>
                   <Input placeholder="Office address" {...field} />
                 </FormControl> */}
-                <FormControl>
-                  <Textarea placeholder="Address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField 
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel ><b>UploadImg</b></FormLabel>
-                <UploadImg />
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+                    <FormControl>
+                      <Textarea placeholder="Address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+{/* 
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel ><b>UploadImg</b></FormLabel>
+                    <UploadImg />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              /> */}
+            </div>
           </div>
-          </div>
-          
-          
+
+
           <Button
             type="submit"
             className="w-full py-2 mt-8"

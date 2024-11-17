@@ -41,17 +41,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       const user = await handlelogin({ email: token.email })
       token.roll = user.roll;
       token._id = user._id;
-      return token
+      return token;
     },
     session({ session, token }) {
+      
       session.user.id = token._id;
       session.user.roll = token.roll;
-
       return session;
     },  
   },
-
-
 })
 
 

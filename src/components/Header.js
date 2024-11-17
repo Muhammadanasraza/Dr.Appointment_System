@@ -28,7 +28,7 @@ import { auth, signOut } from "../../auth"
 export default async function Header() {
 
     const session = await auth();
-    console.log("sess=>>>", session)
+    // console.log("sess=>>>", session)
 
     // console.log("session me kiya hai bhai=>>>",session)
 
