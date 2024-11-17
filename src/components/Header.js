@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/avatar"
 import Link from "next/link"
 import { auth, signOut } from "../../auth"
-import SignOut from "./SignOut"
 
 
 
