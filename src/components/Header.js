@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/avatar"
 import Link from "next/link"
 import { auth, signOut } from "../../auth"
-import LogoutButton from "./Logout"
 
 
 
@@ -56,7 +55,7 @@ export default async function Header() {
                                     <DropdownMenuTrigger asChild>
                                         {/* <Button variant="outline">Open</Button> */}
                                         <Avatar>
-                                            <AvatarImage src={session.user.image} alt="@shadcn" />
+                                            <AvatarImage src={session?.user?.image} alt="@shadcn" />
                                             <AvatarFallback>CN</AvatarFallback>
                                         </Avatar>
                                     </DropdownMenuTrigger>

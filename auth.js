@@ -40,14 +40,15 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token }) {
       const user = await handlelogin({ email: token.email })
       token.roll = user.roll;
-      token._id = user._id
+      token._id = user._id;
       return token
     },
     session({ session, token }) {
       session.user.id = token._id;
-      session.user.roll = token.roll
-      return session
-    },
+      session.user.roll = token.roll;
+
+      return session;
+    },  
   },
 
 
