@@ -3,7 +3,7 @@ import { auth, signIn } from "../../../auth"
 import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card"
 // import { Separator } from "@/components/ui/separator"
-import { Mail } from 'lucide-react'
+import { Github, Mail } from 'lucide-react'
 
 export default async function Signin({ callbackUrl = "/" }) {
   const session = await auth()
