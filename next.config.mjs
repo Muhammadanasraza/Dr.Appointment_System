@@ -5,6 +5,9 @@ const nextConfig = {
         remotePatterns : [
             {
                 hostname : "img.freepik.com"
+            },
+            {
+                hostname : "lh3.googleusercontent.com"
             }
         ]
     }
