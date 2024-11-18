@@ -1,9 +1,9 @@
 
-"use server"
+"use server";
 
 export default async function addRequest(data) {
 
-const add = await fetch(`${process.env.BASE_URL}api/request`,{
+const add = await fetch(`${process.env.BASE_URL}api/requests`,{
     method : "POST",
     body : JSON.stringify(data),
 });

@@ -1,4 +1,3 @@
-// components/DoctorForm.js
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -16,9 +15,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import UploadImg from "./UploadImg";
 import { DatePicker } from "./DatePikker";
-import addRequest from "@/action/requests";
+import addRequest from "@/actions/requests";
 import { toast } from "@/hooks/use-toast";
 
 const formSchema = z.object({
@@ -59,16 +57,16 @@ export default function DoctorForm({ session }) {
     },
   });
 
- async function onSubmit(values) {
+  async function onSubmit(values) {
     console.log(values);
     values.user = session.user._id;
     await addRequest(values);
-    form.reset()
+    form.reset();
     toast({
       title: "Request Submited Succesfully",
-      description: `Cangratulations `,
+      description: 'Cangratulations ',
     })
-  }
+  } 
 
   return (
     <div className="flex items-center  w-full justify-center min-h-screen ">
@@ -262,7 +260,7 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
-{/* 
+              {/* 
               <FormField
                 control={form.control}
                 name="email"
