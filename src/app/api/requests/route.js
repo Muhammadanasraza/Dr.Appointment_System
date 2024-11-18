@@ -7,10 +7,22 @@ import { RequestModal } from "@/lib/models/RequestModal";
 
 
 export async function POST(req) {
-
     await connectDb()
     try {
         const obj = await req.json()
+
+
+        const isUserAdded = await RequestModal.findOne({ user: obj.user });
+        if (isUserAdded) {
+            return Response.json({
+                error: true,
+                msg: "Your are already Registered",
+
+            }
+        , {status: 403})
+        };
+
+
 
         let newRequest = await new RequestModal({ ...obj });
 

@@ -38,7 +38,7 @@ const formSchema = z.object({
 
 export default function DoctorForm({ session }) {
   const form = useForm({
-  
+
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -61,13 +61,22 @@ export default function DoctorForm({ session }) {
   async function onSubmit(values) {
     console.log(values);
     values.user = session.user._id;
-    await addRequest(values);
-    form.reset();
-    toast({
-      title: "Request Submited Succesfully",
-      description: 'Cangratulations ',
-    })
-  } 
+    const response = await addRequest(values);
+    if (response) {
+      form.reset();
+      toast({
+        title: "Sorry Your Request Not submited",
+        description: response.msg,
+      })
+    } else {
+
+      form.reset();
+      toast({
+        title: "Request Submited Succesfully",
+        description: 'Cangratulations ',
+      })
+    }
+  }
 
   return (
     <div className="flex items-center  w-full justify-center min-h-screen ">
