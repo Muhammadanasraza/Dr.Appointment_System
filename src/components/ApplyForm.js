@@ -38,6 +38,7 @@ const formSchema = z.object({
 
 export default function DoctorForm({ session }) {
   const form = useForm({
+  
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -280,7 +281,7 @@ export default function DoctorForm({ session }) {
             type="submit"
             className="w-full py-2 mt-8"
           >
-            <b> Submit</b>
+            <b> {form.formState.isSubmitting ? "Loading.." : "Submit"}</b>
           </Button>
         </form>
       </Form>
