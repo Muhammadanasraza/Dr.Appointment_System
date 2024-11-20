@@ -1,7 +1,7 @@
 
 "use server";
 
-export default async function addRequest(data) {
+export  async function addRequest(data) {
 
     let add = await fetch(`${process.env.BASE_URL}api/requests`, {
         method: "POST",
@@ -12,6 +12,15 @@ export default async function addRequest(data) {
 
     return add;
 };
+
+
+export async function getRequest() {
+
+    let requests = await fetch(`${process.env.BASE_URL}api/requests`);
+    requests = requests.json(); 
+
+    return requests;
+};  
 
 
 
