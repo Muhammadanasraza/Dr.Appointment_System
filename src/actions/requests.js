@@ -11,4 +11,8 @@ export default async function addRequest(data) {
     add = add.json()
 
     return add;
-}
+};
+
+
+
+

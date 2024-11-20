@@ -28,7 +28,7 @@ import { auth, signOut } from "../../auth"
 export default async function Header() {
 
     const session = await auth();
-    // console.log("sess=>>>", session)
+    console.log("sess=>>>", session)
 
     // console.log("session me kiya hai bhai=>>>",session)
 
@@ -77,6 +77,12 @@ export default async function Header() {
                                                 <DropdownMenuItem>
                                                     Profile
                                                     <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
+                                                </DropdownMenuItem>
+                                            </Link>
+                                            <Link href="/admin/requests">
+                                                <DropdownMenuItem>
+                                                    My Requests
+                                                    <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
                                             </Link>
                                             <Link href="/appointment">
