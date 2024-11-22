@@ -36,27 +36,28 @@ export default async function Requests() {
 
                                     <CardTitle>{request.name}</CardTitle>
                                     <Avatar>
-                                        <AvatarImage className="w-10  rounded-full" src={''} alt="@shadcn" />
+                                        <AvatarImage className="w-10  rounded-full" src={'request.user.picture'} alt="@shadcn" />
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
                                 </div>
-                                <CardDescription>{request.category}</CardDescription>
-                                <CardDescription>{request.hospital}</CardDescription>
+                                {/* <CardDescription>{request.category}</CardDescription>
+                                <CardDescription>{request.hospital}</CardDescription> */}
                             </CardHeader>
                             <CardFooter className="flex justify-between">
                                 <div className=" ">
 
                                     <CardDescription >
-                                        {request.appointmentTime}
+                                        {request.hospital}
                                     </CardDescription>
                                     <CardDescription>
                                         {request.gender}
                                     </CardDescription>
                                     <CardDescription>
-                                        {requests.fees}
+                                        {request.fees}
                                     </CardDescription>
                                 </div>
                                 <DoctorDetailSheet />
+                                
                             </CardFooter>
                         </Card>)
                     }

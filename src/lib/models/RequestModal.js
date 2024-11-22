@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const requestSchema = new Schema({
+    // user: user,
     user: {type: mongoose.Types.ObjectId, ref: "Users" },
     status: {
         type: String,

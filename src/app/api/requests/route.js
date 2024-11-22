@@ -11,7 +11,6 @@ export async function POST(req) {
     try {
         const obj = await req.json()
 
-
         const isUserAdded = await RequestModal.findOne({ user: obj.user });
         if (isUserAdded) {
             return Response.json({
@@ -49,12 +48,12 @@ export async function GET(req) {
     await connectDb()
     const requests = await RequestModal.find()
 
-    console.log("dataaaaa", requests)
+    // console.log("dataaaaa", requests)
     return Response.json(
         {
             error: false,
             msg: "Request is fetched Successfully",
-            requests,
+            requests: requests
         }, { status: 200 }
     )
 
