@@ -3,14 +3,12 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const requestSchema = new Schema({
-    
-    user: {type: mongoose.Types.ObjectId, ref: "Users" },
+    user: { type: mongoose.Types.ObjectId, ref: "Users" },
     status: {
-        type: String,
-        default: "pending",
-        enum: ["pending", "accepted", "rejected"],
+      type: String,
+      default: "pending",
+      enum: ["pending", "accepted", "rejected"],
     },
-   
     bio: String,
     hospital: String,
     fees: String,
@@ -21,8 +19,7 @@ const requestSchema = new Schema({
     experience: String,
     number: String,
     address: String,
-});
-
+  });
 
 
 export const RequestModal = mongoose.models.Requests || mongoose.model("Requests", requestSchema);

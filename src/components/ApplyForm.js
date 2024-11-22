@@ -39,7 +39,7 @@ export default function DoctorForm({ session }) {
 
   const form = useForm({
 
-    
+
     resolver: zodResolver(formSchema),
     defaultValues: {
       bio: "",
@@ -57,7 +57,7 @@ export default function DoctorForm({ session }) {
 
   async function onSubmit(values) {
     console.log("values---", values);
-    values.user = session.user._id;
+    values.user = session.user.id;
     console.log("values=>", values);
     const response = await addRequest(values);
     console.log("response=..", response);
@@ -233,9 +233,6 @@ export default function DoctorForm({ session }) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel><b>Address</b></FormLabel>
-                    {/* <FormControl>
-                  <Input placeholder="Office address" {...field} />
-                </FormControl> */}
                     <FormControl>
                       <Textarea placeholder="Address" {...field} />
                     </FormControl>
