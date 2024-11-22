@@ -1,7 +1,6 @@
 import connectDb from "@/lib/connectDb";
 import { RequestModal } from "@/lib/models/RequestModal";
 
-// import { RequestModal } from "@/lib/models/RequestModal"
 
 
 
@@ -33,7 +32,7 @@ export async function POST(req) {
 
         }, { status: 201 })
 
-    } catch (e) {
+    } catch(e) {
         return Response.json({
             error: true,
             msg: "Something went Wrong",
@@ -53,7 +52,7 @@ export async function GET(req) {
         {
             error: false,
             msg: "Request is fetched Successfully",
-            requests: requests,
+            requests,
         }, { status: 200 }
     )
 
