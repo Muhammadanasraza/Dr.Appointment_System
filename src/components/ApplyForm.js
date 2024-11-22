@@ -16,8 +16,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { DatePicker } from "./DatePikker";
-import addRequest from "@/actions/requests";
 import { toast } from "@/hooks/use-toast";
+import { addRequest } from "@/actions/requests";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name is required").max(50),

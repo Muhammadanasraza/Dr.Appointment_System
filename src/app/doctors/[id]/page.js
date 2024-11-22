@@ -4,13 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { DatePicker } from "@/components/DatePikker";
 
-export default function DoctorDetailPage({ params }) {
+export default async function DoctorDetailPage({ params }) {
 
     const doctorInfo = doctors.find((doctor) => doctor.id == params.id);
 
     return (
         <div className="bg-white border rounded-lg mx-auto my-5 shadow-lg max-w-3xl w-full p-8">
-            {/* Doctor Image */}
+          
             <div className="flex items-center">
                 <Image
                     width={100}
