@@ -46,14 +46,14 @@ export async function POST(req) {
 
 export async function GET(req) {
     await connectDb()
-    const requests = await RequestModal.find()
+    const requests = await RequestModal.find();
 
     // console.log("dataaaaa", requests)
     return Response.json(
         {
             error: false,
             msg: "Request is fetched Successfully",
-            requests: requests
+            requests: requests,
         }, { status: 200 }
     )
 

@@ -11,7 +11,7 @@ import { auth } from "../../../../auth";
 
 export default async function ApplyAsDoctor() {
 
-    const session = await auth()
+    const session = await auth();
 
 
 

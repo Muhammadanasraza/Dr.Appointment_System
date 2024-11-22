@@ -36,7 +36,7 @@ export default async function Requests() {
 
                                     <CardTitle>{request.name}</CardTitle>
                                     <Avatar>
-                                        <AvatarImage className="w-10  rounded-full" src={'request.user.picture'} alt="@shadcn" />
+                                        <AvatarImage className="w-10  rounded-full" src={''} alt="@shadcn" />
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
                                 </div>
