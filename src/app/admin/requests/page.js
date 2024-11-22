@@ -1,10 +1,7 @@
 import { redirect } from "next/navigation";
 import { auth } from "../../../../auth";
-import { getRequest } from "@/actions/requests";
-
-
-
 import { Button } from "@/components/ui/button"
+import { getRequest } from "@/actions/requests";
 import {
     Card,
     CardContent,
@@ -15,67 +12,61 @@ import {
 } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import Link from "next/link"
+import DoctorDetailSheet from "@/components/DoctorDetailSheet";
 
-
-export default async function MyRequests() {
-
+export default async function Requests() {
     const session = await auth();
-    if (!session && session?.user?.roll != "admin") redirect("/");
+    if (!session || session?.user?.roll !== "admin") redirect("/");
 
-    const requests = await getRequest();
+    const { requests } = await getRequest();
     console.log("request==>>>", requests)
 
     return (
-        <div className="text-center my-5 mx-auto">
-            <h1 className="text-3xl mb-6 font-bold ">
-                {`Doctor's`} Requests
-
+        <div className="max-w-screen-xl container text-center my-5 p-4 mx-auto">
+            <h1 className="text-3xl mb-6 font-bold">
+                Doctor's Requests
             </h1>
 
-            <div className="grid grid-cols-4 max-w-screen-xl px-4 py-8 mx-auto ">
-
-                {/* {requests?.map((request) => {
-                    return ( */}
-
-                        <Card className="w-[300px] max-sm:w-[350px] mx-auto  ">
+            {/* <div className="grid grid-cols-4 ">
+                {
+                    requests?.map((request) => {
+                        return (<Card key={request._id} className={"w-[300px]"}>
                             <CardHeader>
                                 <div className="flex justify-between items-center">
 
-                                    <CardTitle>{}</CardTitle>
+                                    <CardTitle>{request.name}</CardTitle>
                                     <Avatar>
-                                        <AvatarImage className="w-10  rounded-full" src={""} alt="@shadcn" />
+                                        <AvatarImage className="w-10  rounded-full" src={''} alt="@shadcn" />
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
                                 </div>
-                                <CardDescription>{ }</CardDescription>
-                                <CardDescription>{ }</CardDescription>
+                                <CardDescription>{requests.category}</CardDescription>
+                                <CardDescription>{requests.hospital}</CardDescription>
                             </CardHeader>
                             <CardFooter className="flex justify-between">
                                 <div className=" ">
 
                                     <CardDescription >
-                                        { }
+                                        {requests.appointmentTime}
                                     </CardDescription>
                                     <CardDescription>
-                                        { }
+                                        {requests.gender}
                                     </CardDescription>
                                     <CardDescription>
-                                        { }
+                                        {requests.fees}
                                     </CardDescription>
                                 </div>
-                                <Link href={``}>
-                                    <Button className="border  hover:text-red-600" variant={"secondary"}>See Detail</Button>
-                                </Link>
+                                <DoctorDetailSheet />
                             </CardFooter>
-                        </Card>
-
-                    {/* )
-                })} */}
+                        </Card>)
+                    }
 
 
 
-
-            </div>
+                    )
+                }
+            </div> */}
         </div>
     )
 }
+

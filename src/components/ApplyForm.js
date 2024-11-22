@@ -61,23 +61,23 @@ export default function DoctorForm({ session }) {
   async function onSubmit(values) {
     console.log(values);
     values.user = session.user._id;
+    console.log("values=>", values);
     const response = await addRequest(values);
-    if (response) {
+    console.log("response=>", response);
+    if (response.error) {
       form.reset();
       toast({
-        title: "Sorry Your Request Not submited",
+        title: "Sorry , Your application cannot be submitted.",
         description: response.msg,
-      })
+      });
     } else {
-
       form.reset();
       toast({
-        title: "Request Submited Succesfully",
-        description: 'Cangratulations ',
-      })
+        title: "Your application is submitted.",
+        description: "You will be informed by email in 3 business days.",
+      });
     }
   }
-
   return (
     <div className="flex items-center  w-full justify-center min-h-screen ">
 
@@ -286,11 +286,11 @@ export default function DoctorForm({ session }) {
           </div>
 
 
-          <Button
+          <Button 
             type="submit"
             className="w-full py-2 mt-8"
           >
-            <b> {form.formState.isSubmitting ? "Loading.." : "Submit"}</b>
+            {form.formState.isSubmitting ? "Loading.." : "Submit"}
           </Button>
         </form>
       </Form>
