@@ -19,7 +19,7 @@ export default async function Requests() {
     if (!session || session?.user?.roll != "admin") redirect("/");
 
     const { requests } = await getRequest();
-    console.log("request==>>>", requests)
+    console.log("request--==>>>", requests)
 
     return (
         <div className="max-w-screen-xl container text-center my-5 p-4 mx-auto">
@@ -30,11 +30,11 @@ export default async function Requests() {
             <div className="grid grid-cols-4 ">
                 {
                     requests?.map((request) => {
-                        return (<Card key={ request.name} className={"w-[300px]"}>
+                        return (<Card key={ request._id} className={"w-[300px]"}>
                             <CardHeader>
                                 <div className="flex justify-between items-center">
 
-                                    <CardTitle>{request.name}</CardTitle>
+                                    <CardTitle>{''}</CardTitle>
                                     <Avatar>
                                         <AvatarImage className="w-10  rounded-full" src={''} alt="@shadcn" />
                                         <AvatarFallback>CN</AvatarFallback>
