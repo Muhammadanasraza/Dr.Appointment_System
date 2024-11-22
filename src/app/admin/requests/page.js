@@ -24,7 +24,7 @@ export default async function Requests() {
     return (
         <div className="max-w-screen-xl container text-center my-5 p-4 mx-auto">
             <h1 className="text-3xl mb-6 font-bold">
-                Doctor's Requests
+               {" Doctor's"} Requests
             </h1>
 
             {/* <div className="grid grid-cols-4 ">
