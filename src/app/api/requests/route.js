@@ -19,13 +19,12 @@ export async function POST(req) {
                 msg: "Your are already Registered",
 
             }
-        , {status: 403})
+                , { status: 403 })
         };
 
 
 
         let newRequest = await new RequestModal({ ...obj });
-
         newRequest = await newRequest.save()
 
         return Response.json({
@@ -47,16 +46,17 @@ export async function POST(req) {
 
 
 export async function GET(req) {
-
     await connectDb()
+    const requests = await RequestModal.find()
 
-    const request = await RequestModal.find()
-
-    return Response.json({
-        error: false,
-        msg: "Request is fetched Successfully",
-        request
-    }, { status: 200 })
+    console.log("dataaaaa", requests)
+    return Response.json(
+        {
+            error: false,
+            msg: "Request is fetched Successfully",
+            requests,
+        }, { status: 200 }
+    )
 
 }
 

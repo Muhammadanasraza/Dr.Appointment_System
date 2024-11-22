@@ -22,7 +22,7 @@ export async function POST(req) {
         
         }, { status: 201 })
 
-    } catch (e) {
+    }catch(e){
         return Response.json({
             error: true,
             msg: "Something went Wrong",

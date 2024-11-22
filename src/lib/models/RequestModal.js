@@ -3,8 +3,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const requestSchema = new Schema({
-
-    user: { type: mongoose.Types.ObjectId, ref: "Users" },
+    user: {type: mongoose.Types.ObjectId, ref: "Users" },
     status: {
         type: String,
         default: "pending",
@@ -20,7 +19,6 @@ const requestSchema = new Schema({
     degree: String,
     specialization: String,
     experience: String,
-
     number: String,
     email: String,
     address: String,

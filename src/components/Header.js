@@ -79,12 +79,12 @@ export default async function Header() {
                                                     <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
                                             </Link>
-                                            {session || session?.user?.roll == "admin" ? <Link href="/admin/requests">
+                                           <Link href="/admin/requests">
                                                 <DropdownMenuItem>
                                                     My Requests
                                                     <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
-                                            </Link> : ""}
+                                            </Link> 
                                             
                                             <Link href="/appointment">
                                                 <DropdownMenuItem>

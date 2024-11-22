@@ -16,7 +16,7 @@ import DoctorDetailSheet from "@/components/DoctorDetailSheet";
 
 export default async function Requests() {
     const session = await auth();
-    if (!session || session?.user?.roll !== "admin") redirect("/");
+    if (!session || session?.user?.roll != "admin") redirect("/");
 
     const { requests } = await getRequest();
     console.log("request==>>>", requests)
@@ -24,13 +24,13 @@ export default async function Requests() {
     return (
         <div className="max-w-screen-xl container text-center my-5 p-4 mx-auto">
             <h1 className="text-3xl mb-6 font-bold">
-               {" Doctor's"} Requests
+                {" Doctor's"} Requests
             </h1>
 
-            {/* <div className="grid grid-cols-4 ">
+            <div className="grid grid-cols-4 ">
                 {
                     requests?.map((request) => {
-                        return (<Card key={request._id} className={"w-[300px]"}>
+                        return (<Card key={ request.name} className={"w-[300px]"}>
                             <CardHeader>
                                 <div className="flex justify-between items-center">
 
@@ -40,17 +40,17 @@ export default async function Requests() {
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
                                 </div>
-                                <CardDescription>{requests.category}</CardDescription>
-                                <CardDescription>{requests.hospital}</CardDescription>
+                                <CardDescription>{request.category}</CardDescription>
+                                <CardDescription>{request.hospital}</CardDescription>
                             </CardHeader>
                             <CardFooter className="flex justify-between">
                                 <div className=" ">
 
                                     <CardDescription >
-                                        {requests.appointmentTime}
+                                        {request.appointmentTime}
                                     </CardDescription>
                                     <CardDescription>
-                                        {requests.gender}
+                                        {request.gender}
                                     </CardDescription>
                                     <CardDescription>
                                         {requests.fees}
@@ -65,7 +65,7 @@ export default async function Requests() {
 
                     )
                 }
-            </div> */}
+            </div>
         </div>
     )
 }
