@@ -35,7 +35,7 @@ const formSchema = z.object({
   address: z.string(),
 });
 
-export default async function DoctorForm({ session }) {
+export default function DoctorForm({ session }) {
   
   const form = useForm({
 
