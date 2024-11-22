@@ -25,14 +25,15 @@ export async function POST(req) {
         let newRequest = await new RequestModal({ ...obj });
         newRequest = await newRequest.save()
 
-        return Response.json({
+        return Response.json(
+            {
             error: false,
             msg: "Request is Submited  Successfully",
             request: newRequest,
 
         }, { status: 201 })
 
-    } catch(e) {
+    } catch (e) {
         return Response.json({
             error: true,
             msg: "Something went Wrong",

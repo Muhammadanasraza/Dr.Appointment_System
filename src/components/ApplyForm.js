@@ -19,11 +19,11 @@ import { toast } from "@/hooks/use-toast";
 import { addRequest } from "@/actions/requests";
 
 const formSchema = z.object({
-  name: z.string().min(2, "Name is required").max(50),
+  // name: z.string().min(2, "Name is required").max(50),
   bio: z.string().min(2).max(150, "Bio is too long"),
   hospital: z.string().min(2).max(90),
   fees: z.string(),
-  days: z.string().min(2).max(50),
+  // days: z.string().min(2).max(50),
   gender: z.enum(["Male", "Female", "Other"]),
   appointmentTime: z.string(),
   degree: z.string(),
@@ -31,35 +31,32 @@ const formSchema = z.object({
   experience: z.string(),
   // profileImg: z.string().url("Must be a valid URL"),
   number: z.string().min(10).max(15),
-  email: z.string().email("Invalid email format"),
+  // email: z.string().email("Invalid email format"),
   address: z.string(),
 });
 
 export default function DoctorForm({ session }) {
-  
+
   const form = useForm({
 
+    
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
       bio: "",
       hospital: "",
       fees: "",
-      days: "",
       gender: "",
       appointmentTime: "",
       degree: "",
       specialization: "",
       experience: "",
-      // profileImg: "",
       number: "",
-      email: "",
       address: "",
     },
   });
 
   async function onSubmit(values) {
-    console.log("values---",values);
+    console.log("values---", values);
     values.user = session.user._id;
     console.log("values=>", values);
     const response = await addRequest(values);
@@ -90,7 +87,7 @@ export default function DoctorForm({ session }) {
           <div className=" grid grid-cols-2 gap-6 ">
 
             <div className=" flex flex-col gap-5">
-              <FormField
+              {/* <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
@@ -102,7 +99,7 @@ export default function DoctorForm({ session }) {
                     <FormMessage />
                   </FormItem>
                 )}
-              />
+              /> */}
               <FormField
                 control={form.control}
                 name="bio"
@@ -142,19 +139,7 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="days"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel><b>Available Days</b></FormLabel>
-                    <FormControl>
-                      <Input placeholder="Available days (e.g., Mon-Fri)" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
               <FormField
                 control={form.control}
                 name="gender"
@@ -239,19 +224,7 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel><b>Email</b></FormLabel>
-                    <FormControl>
-                      <Input placeholder="Email address" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+
 
 
               <FormField
@@ -270,23 +243,12 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
-              {/* 
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel ><b>UploadImg</b></FormLabel>
-                    <UploadImg />
-                    <FormMessage />
-                  </FormItem>
-                )}
-              /> */}
+
             </div>
           </div>
 
 
-          <Button 
+          <Button
             type="submit"
             className="w-full py-2 mt-8"
           >

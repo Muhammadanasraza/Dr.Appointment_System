@@ -32,7 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           lastName: profile.family_name,
           email: profile.email,
           picture: profile.picture
-        }
+        };
         const user = await handlelogin(obj);
         return user // Do different verification for other providers that don't have `email_verified`
       }
