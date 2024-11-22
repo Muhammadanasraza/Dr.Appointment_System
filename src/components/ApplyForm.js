@@ -38,7 +38,7 @@ const formSchema = z.object({
 });
 
 export default async function DoctorForm({ session }) {
-  const session = await auth();
+  
   const form = useForm({
 
     resolver: zodResolver(formSchema),
