@@ -15,7 +15,7 @@ export default async function ApplyAsDoctor() {
             <h1 className="mx-auto text-2xl container font-bold">Apply As Doctor on Our Platform</h1>
             <p className="text-secondary-foreground mt-4">Apply As Doctor on Our Platform Apply As Doctor on Our PlatformApply As Doctor on Our PlatformApply As Doctor on Our PlatformApply As Doctor on Our PlatformApply As Doctor on Our PlatformApply  As Doctor on Our PlatformApply As Doctor on Our PlatformApply As Doctor on Our Platform</p>
 
-            <DoctorForm session={session}/>
+            <DoctorForm  session={session}/>
 
 
 
