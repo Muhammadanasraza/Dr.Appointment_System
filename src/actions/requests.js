@@ -6,7 +6,7 @@ export  async function addRequest(data) {
         method: "POST",
         body: JSON.stringify(data),
     });
-    add = add.json()
+    add = await add.json()
     return add;
 };
 
