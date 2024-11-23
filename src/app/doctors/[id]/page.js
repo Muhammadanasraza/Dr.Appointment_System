@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { DatePicker } from "@/components/DatePikker";
 
-export default async function DoctorDetailPage({ params }) {
+export default function DoctorDetailPage({ params }) {
 
     const doctorInfo = doctors.find((doctor) => doctor.id == params.id);
 
