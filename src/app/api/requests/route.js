@@ -46,7 +46,7 @@ export async function POST(req) {
 
 export async function GET(req) {
     await connectDb()
-    const requests = await RequestModal.find();
+    const requests = await RequestModal.find().populate("user");
 
     // console.log("dataaaaa", requests)
     return Response.json(

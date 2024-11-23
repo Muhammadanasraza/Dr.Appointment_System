@@ -13,6 +13,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import Link from "next/link"
 import DoctorDetailSheet from "@/components/DoctorDetailSheet";
+import { ClockIcon, HomeIcon, PlusIcon } from "lucide-react";
 
 export default async function Requests() {
     const session = await auth();
@@ -30,40 +31,55 @@ export default async function Requests() {
             <div className="grid grid-cols-4 ">
                 {
                     requests?.map((request) => {
-                        return (<Card key={ request._id} className={"w-[300px]"}>
-                            <CardHeader>
-                                <div className="flex justify-between items-center">
-
-                                    <CardTitle>{''}</CardTitle>
-                                    <Avatar>
-                                        <AvatarImage className="w-10  rounded-full" src={''} alt="@shadcn" />
-                                        <AvatarFallback>CN</AvatarFallback>
+                        return (
+                            <Card key={request._id}>
+                                <CardHeader className="flex flex-row items-center space-x-4 justify-between">
+                                    <Avatar className="h-10 w-10 ">
+                                        <AvatarImage className="rounded-full"
+                                            src={request.user.picture}
+                                            alt={request.user.firstName}
+                                            />
+                                        <AvatarFallback>
+                                            {request.user.firstName.charAt(0)}
+                                            {request.user.lastName?.charAt(0)}
+                                        </AvatarFallback>
                                     </Avatar>
-                                </div>
-                                {/* <CardDescription>{request.category}</CardDescription>
-                                <CardDescription>{request.hospital}</CardDescription> */}
-                            </CardHeader>
-                            <CardFooter className="flex justify-between">
-                                <div className=" ">
+                                    <div className="text-right">
+                                        <CardTitle>{`${request.user.firstName} ${request.user.lastName || ""}`}</CardTitle>
+                                        <CardDescription className="capitalize">
+                                            {request.status}
+                                        </CardDescription>
+                                    </div>
+                                </CardHeader>
+                                <CardContent>
+                                    <div className="space-y-2">
+                                        <div className="flex justify-between items-center">
+                                            <div className="flex items-center space-x-2">
+                                                <HomeIcon className="h-4 w-4" />
+                                                <span className="font-semibold">Gender</span>
+                                            </div>
+                                            <span className="font-sans">{request.gender}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <div className="flex items-center space-x-2">
+                                                <PlusIcon className="h-4 w-4" />
+                                                <span className="font-semibold">Hospital</span>
+                                            </div>
+                                            <span className="font-sans">{request.hospital}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <div className="flex items-center space-x-2">
+                                                <ClockIcon className="h-4 w-4" />
+                                                <span className="font-semibold">Degree</span>
+                                            </div>
+                                            <span className="font-sans">{request.degree}</span>
+                                        </div>
+                                    </div>
+                                </CardContent>
+                            </Card>
 
-                                    <CardDescription >
-                                        {request.hospital}
-                                    </CardDescription>
-                                    <CardDescription>
-                                        {request.gender}
-                                    </CardDescription>
-                                    <CardDescription>
-                                        {request.fees}
-                                    </CardDescription>
-                                </div>
-                                <DoctorDetailSheet />
-                                
-                            </CardFooter>
-                        </Card>)
+                        )
                     }
-
-
-
                     )
                 }
             </div>
