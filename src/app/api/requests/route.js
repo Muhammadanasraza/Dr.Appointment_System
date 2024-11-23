@@ -1,6 +1,6 @@
 import connectDb from "@/lib/connectDb";
 import { RequestModal } from "@/lib/models/RequestModal";
-
+import { UserModal } from "@/lib/models/UserModal";
 
 
 
