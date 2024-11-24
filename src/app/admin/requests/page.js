@@ -13,7 +13,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
 import Link from "next/link"
 import DoctorDetailSheet from "@/components/DoctorDetailSheet";
-import { ClockIcon, HomeIcon, PlusIcon } from "lucide-react";
+import { ClockIcon, EyeIcon, HomeIcon, PlusIcon } from "lucide-react";
 
 export default async function Requests() {
     const session = await auth();
@@ -38,7 +38,7 @@ export default async function Requests() {
                                         <AvatarImage className="rounded-full"
                                             src={request.user.picture}
                                             alt={request.user.firstName}
-                                            />
+                                        />
                                         <AvatarFallback>
                                             {request.user.firstName.charAt(0)}
                                             {request.user.lastName?.charAt(0)}
@@ -52,7 +52,7 @@ export default async function Requests() {
                                     </div>
                                 </CardHeader>
                                 <CardContent>
-                                    <div className="space-y-2">
+                                    <div className="space-y-2 font-sans">
                                         <div className="flex justify-between items-center">
                                             <div className="flex items-center space-x-2">
                                                 <HomeIcon className="h-4 w-4" />
@@ -73,6 +73,12 @@ export default async function Requests() {
                                                 <span className="font-semibold">Degree</span>
                                             </div>
                                             <span className="font-sans">{request.degree}</span>
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <div className="flex items-center space-x-2">
+                                                <span className="font-semibold">See Deatil</span>
+                                            </div>
+                                            <DoctorDetailSheet request={request}/>
                                         </div>
                                     </div>
                                 </CardContent>

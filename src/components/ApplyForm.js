@@ -78,9 +78,9 @@ export default function DoctorForm({ session }) {
   return (
     <div className="flex items-center  w-full justify-center min-h-screen ">
 
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
+      <Form  {...form}>
+        <form 
+          onSubmit={ form.handleSubmit(onSubmit)}
           className="w-full max-sm:w-full py-4 mx-auto mt-10 border p-6 bg-white rounded-lg shadow-lg"
         >
 
