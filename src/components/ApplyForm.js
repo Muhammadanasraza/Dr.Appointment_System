@@ -87,19 +87,7 @@ export default function DoctorForm({ session }) {
           <div className=" grid grid-cols-2 gap-6 ">
 
             <div className=" flex flex-col gap-5">
-              {/* <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel><b>Name</b></FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              /> */}
+             
               <FormField
                 control={form.control}
                 name="bio"

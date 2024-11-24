@@ -10,7 +10,7 @@ export async function POST(req) {
     try {
         const obj = await req.json()
 
-        const isUserAdded = await RequestModal.findOne({ user: obj.user });
+        const isUserAdded = await RequestModal.findOne({ email: obj.email });
         if (isUserAdded) {
             return Response.json({
                 error: true,
