@@ -31,7 +31,7 @@ const formSchema = z.object({
   experience: z.string(),
   // profileImg: z.string().url("Must be a valid URL"),
   number: z.string().min(10).max(15),
-  email: z.string().email("Invalid email format"),
+  // email: z.string().email("Invalid email format"),
   address: z.string(),
 });
 
@@ -51,7 +51,6 @@ export default function DoctorForm({ session }) {
       specialization: "",
       experience: "",
       number: "",
-      email: "",
       address: "",
     },
   });
@@ -88,7 +87,19 @@ export default function DoctorForm({ session }) {
           <div className=" grid grid-cols-2 gap-6 ">
 
             <div className=" flex flex-col gap-5">
-             
+              {/* <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Name</b></FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              /> */}
               <FormField
                 control={form.control}
                 name="bio"
@@ -152,19 +163,6 @@ export default function DoctorForm({ session }) {
                       {/* <Input placeholder="Available times (e.g., 9 AM - 5 PM)" {...field} />
                    */}
                       <DatePicker />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel><b>Email</b></FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -242,7 +240,6 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
-              
 
             </div>
           </div>

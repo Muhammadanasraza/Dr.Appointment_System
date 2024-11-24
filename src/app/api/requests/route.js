@@ -3,13 +3,14 @@ import { RequestModal } from "@/lib/models/RequestModal";
 
 
 
+
+
 export async function POST(req) {
     await connectDb()
     try {
         const obj = await req.json()
-        console.log("obj data",obj)
 
-        const isUserAdded = await RequestModal.findOne({ email: obj.email });
+        const isUserAdded = await RequestModal.findOne({ user: obj.user });
         if (isUserAdded) {
             return Response.json({
                 error: true,
