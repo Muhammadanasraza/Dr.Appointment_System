@@ -10,11 +10,11 @@ export async function POST(req) {
     try {
         const obj = await req.json()
 
-        const isUserAdded = await RequestModal.findOne({ email: obj.email });
+        const isUserAdded = await RequestModal.findOne({ user: obj.user });
         if (isUserAdded) {
             return Response.json({
                 error: true,
-                msg: "Your are already Registered",
+                msg: "Your are already Registered", 
 
             }
                 , { status: 403 })
