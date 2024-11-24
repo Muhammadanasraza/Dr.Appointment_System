@@ -31,7 +31,7 @@ const formSchema = z.object({
   experience: z.string(),
   // profileImg: z.string().url("Must be a valid URL"),
   number: z.string().min(10).max(15),
-  // email: z.string().email("Invalid email format"),
+  email: z.string().email("Invalid email format"),
   address: z.string(),
 });
 
@@ -51,6 +51,7 @@ export default function DoctorForm({ session }) {
       specialization: "",
       experience: "",
       number: "",
+      email: "",
       address: "",
     },
   });
@@ -156,6 +157,19 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Email</b></FormLabel>
+                    <FormControl>
+                      <Textarea placeholder="Email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
             </div>
             <div className="flex flex-col gap-5">
@@ -228,6 +242,7 @@ export default function DoctorForm({ session }) {
                   </FormItem>
                 )}
               />
+              
 
             </div>
           </div>
