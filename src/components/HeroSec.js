@@ -60,7 +60,7 @@ export default async function HeroSec() {
                             //   width={400}
                             //   height={400}
                             fill="true"
-                            src="https://img.freepik.com/free-photo/delivery-man-employee-red-cap-blank-tshirt-uniform-looking-camera-happy-positive-smiling-cheerfully-presenting-with-arms-his-hands-something-standing-blue-background_141793-140382.jpg?t=st=1730475237~exp=1730478837~hmac=6cd3bb8152d5c6e6d192c2d360db456c8416a15213e0770f91cd784bd45f5e6f&w=996"
+                            src="https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17820.jpg?ga=GA1.1.518592586.1717923796&semt=ais_hybrid"
                             alt="mockup"
                         />
                     </div>
