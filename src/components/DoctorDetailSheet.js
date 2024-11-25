@@ -22,7 +22,6 @@ import {
 
 export default function DoctorDetailSheet({ request }) {
     return (
-      
         <Sheet>
             <SheetTrigger asChild>
                 <button className="p-2 hover:bg-gray-100 rounded-full">
@@ -38,7 +37,7 @@ export default function DoctorDetailSheet({ request }) {
                             <Avatar className="h-24 w-24">
                                 <AvatarImage
                                     src={request.user.picture}
-                                    alt={`${request.user.firstName} ${request.user.lastName}`}
+                                    alt={`${request.user.firstName}`}
                                 />
                                 <AvatarFallback>
                                     {request.user?.firstName?.charAt(0)}
@@ -50,6 +49,7 @@ export default function DoctorDetailSheet({ request }) {
                             </h1>
                         </div>
                     </SheetDescription>
+
                 </SheetHeader>
                 <div className="mt-6 space-y-4">
                     <div className="flex items-center gap-2">
