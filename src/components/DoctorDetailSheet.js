@@ -17,7 +17,9 @@ import {
     Briefcase,
     GraduationCap,
     Stethoscope,
+    Link,
 } from "lucide-react";
+import { Button } from "react-day-picker";
 
 
 export default function DoctorDetailSheet({ request }) {
@@ -112,6 +114,7 @@ export default function DoctorDetailSheet({ request }) {
                             <span className="capitalize">{request.status}</span>
                         </p>
                     </div>
+                    
                 </div>
             </SheetContent>
         </Sheet>

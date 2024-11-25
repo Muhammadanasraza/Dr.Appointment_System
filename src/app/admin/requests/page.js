@@ -78,7 +78,12 @@ export default async function Requests() {
                                             <div className="flex items-center space-x-2">
                                                 <span className="font-semibold">See Deatil</span>
                                             </div>
-                                            <DoctorDetailSheet request={request}/>
+                                            <DoctorDetailSheet request={request} />
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <Link href={``}>
+                                                <Button className="border hover:text-red-500" variant="">See Detail</Button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </CardContent>
