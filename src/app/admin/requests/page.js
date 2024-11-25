@@ -28,7 +28,7 @@ export default async function Requests() {
                 {" Doctor's"} Requests
             </h1>
 
-            <div className="grid grid-cols-4 gap-3 ">
+            <div className="grid grid-cols-4 gap-4 ">
                 {
                     requests?.map((request) => {
                         return (
