@@ -55,7 +55,7 @@ export default function DoctorDetailSheet({ request }) {
                     <div className="flex items-center gap-2">
                         <Stethoscope className="h-5 w-5 text-gray-500" />
                         <p>
-                            <span className="font-semibold">Specialization:</span>{" "}
+                            <span className="font-semibold">Specialization:</span>
                             {request.specialization}
                         </p>
                     </div>
