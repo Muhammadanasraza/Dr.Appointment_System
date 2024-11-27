@@ -19,5 +19,13 @@ export  async function getRequest() {
 };  
 
 
-
+export async function updateRequest(id, status) {
+    let requests = await fetch(`${process.env.BASE_URL}api/requests`, {
+      method: "PUT",
+      body: JSON.stringify({ id, status }),
+    });
+    requests = requests.json();
+    revalidatePath("/admin/requests");
+    return requests;
+  }
 
