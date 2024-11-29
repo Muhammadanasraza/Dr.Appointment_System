@@ -14,7 +14,7 @@ export async function POST(req) {
         if (isUserAdded) {
             return Response.json({
                 error: true,
-                msg: "Your are already Registered", 
+                msg: "Your are already Registered",
 
             }
                 , { status: 403 })
@@ -27,11 +27,11 @@ export async function POST(req) {
 
         return Response.json(
             {
-            error: false,
-            msg: "Request is Submited  Successfully",
-            request: newRequest,
+                error: false,
+                msg: "Request is Submited  Successfully",
+                request: newRequest,
 
-        }, { status: 201 })
+            }, { status: 201 })
 
     } catch (e) {
         return Response.json({
@@ -60,8 +60,35 @@ export async function GET(req) {
 }
 
 export async function PUT(req) {
+    await connectDb()
+    try {
+        const obj = await req.json();
+        const { id, status } = obj;
 
-}
+        const updated = await RequestModal.findOneAndUpdate({
+            _id: id
+        }, {
+            status: status
+        }).exec();
+        return Response.json(
+            {
+                error: false,
+                msg: "Request Updated  Successfully",
+                request: updated,
+
+            }, { status: 201 }) 
+    }
+    catch (err) {
+        return Response.json(
+            {
+                error: true,
+                msg: "Request is not Updated",
+                request: updated,
+
+            }, { status: 500 }) 
+    }
+    }
+
 
 export async function DELETE(req) {
 

@@ -53,7 +53,7 @@ export default function DoctorPage({ isHome }) {
                     </Select>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3  sm:grid-cols-2  lg:grid-col-4  gap-5 my-10 justify-between container">
+                <div className="grid grid-cols-1  md:grid-cols-3  max-sm:grid-cols-1  min-lg:grid-col-4  gap-5 my-10 justify-between container">
 
 
                     {
