@@ -46,7 +46,15 @@ export async function POST(req) {
 
 export async function GET(req) {
     await connectDb()
-    const requests = await RequestModal.find().populate("user");
+    console.log(req)
+    const query = {};
+    const status = req?.nextUrl?.searchParams?.get("status")
+    if (status && status != 'all') {
+        query.status = status;
+    }
+    console.log("status is backend", status)
+
+    const requests = await RequestModal.find(query).populate("user");
 
     // console.log("dataaaaa", requests)
     return Response.json(
@@ -76,7 +84,7 @@ export async function PUT(req) {
                 msg: "Request Updated  Successfully",
                 request: updated,
 
-            }, { status: 201 }) 
+            }, { status: 201 })
     }
     catch (err) {
         return Response.json(
@@ -85,9 +93,9 @@ export async function PUT(req) {
                 msg: "Request is not Updated",
                 request: updated,
 
-            }, { status: 500 }) 
+            }, { status: 500 })
     }
-    }
+}
 
 
 export async function DELETE(req) {

@@ -22,12 +22,15 @@ import {
 } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
+import { getRequest } from "@/actions/requests"
+import DoctorCard from "./DoctorCard"
 
 
-export default function Doctor({ isHome }) {
+export default async function Doctor({ isHome }) {
 
 
-    const filtered = isHome ? doctors.slice(0, 6) : doctors;
+    // const filtered = isHome ? doctors.slice(0, 6) : doctors;
+    const {requests} = await getRequest("accepted")
 
     return (
         <>
@@ -60,37 +63,9 @@ export default function Doctor({ isHome }) {
                 <div className="grid grid-cols-1 md:grid-cols-3 max-sm:px-3 sm:grid-cols-2  lg:grid-col-4  gap-5 my-10 justify-between container">
 
                     {
-                        filtered.map((doctors, index) => (
-
-                            <Card key={index} className="w-[400px] max-sm:w-auto mx-auto flex justify-between ">
-                                <CardHeader >
-                                    <div className="flex items-center gap-3">
-
-                                        <div>
-                                            <Image className="rounded-full"
-                                                width={40}
-                                                height={40}
-                                                src={doctors.image}
-                                                alt="DAS"
-
-                                            />
-                                        </div>
-                                        <div className="">
-                                            <CardTitle className="pb-1">{doctors.name}</CardTitle>
-                                            <CardDescription>{doctors.category}</CardDescription>
-
-                                        </div>
-                                    </div>
-                                </CardHeader>
-                                <CardHeader>
-                                    <Link href={`/doctors/${doctors.id}`}>
-                                        <Button  className="border hover:text-red-600" variant="secondary">See Detail</Button>
-                                    </Link>
-                                </CardHeader>
-
-
-                            </Card>)
-                        )
+                        requests.map((request) => 
+                        (<DoctorCard key={request._id} request={request} isAdmin={false}/>)
+                    )
                     }
 
                 </div>

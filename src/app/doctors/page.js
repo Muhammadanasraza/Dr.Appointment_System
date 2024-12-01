@@ -7,28 +7,21 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { categories, doctors } from "@/lib/doctor"
+import { categories  } from "@/lib/doctor"
 
 import * as React from "react"
 
-import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar"
-import Link from "next/link"
+import { getRequest } from "@/actions/requests"
+import DoctorCard from "@/components/DoctorCard"
 
 
 
-export default function DoctorPage({ isHome }) {
+export default async function DoctorPage({ isHome }) {
 
 
-    const filtered = isHome ? doctors.slice(0, 6) : doctors;
+    // const filtered = isHome ? doctors.slice(0, 6) : doctors;
+    
+    const {requests} = await getRequest("accepted")
 
     return (
         <>
@@ -56,43 +49,13 @@ export default function DoctorPage({ isHome }) {
                 <div className="grid grid-cols-1  md:grid-cols-3  max-sm:grid-cols-1  min-lg:grid-col-4  gap-5 my-10 justify-between container">
 
 
-                    {
-                        filtered.map((doctors, index) => (
-
-                            <Card key={index} className="w-[400px] max-sm:w-[350px] mx-auto  ">
-                                <CardHeader>
-                                    <div className="flex justify-between items-center">
-
-                                        <CardTitle>{doctors.name}</CardTitle>
-                                        <Avatar>
-                                            <AvatarImage className="w-10  rounded-full" src={doctors.image} alt="@shadcn" />
-                                            <AvatarFallback>CN</AvatarFallback>
-                                        </Avatar>
-                                    </div>
-                                    {/* <CardDescription>{doctors.category}</CardDescription> */}
-                                    {/* <CardDescription>{doctors.hospital}</CardDescription> */}
-                                    {/* <Button className="border" variant="secondary">Apply</Button> */}
-                                </CardHeader>
-                                <CardFooter className="flex justify-between">
-                                    <div className=" ">
-
-                                        <CardDescription >
-                                            {doctors.appointmentTime}
-                                        </CardDescription>
-                                        <CardDescription>
-                                            {doctors.gender}
-                                        </CardDescription>
-                                        <CardDescription>
-                                            {doctors.fees}
-                                        </CardDescription>
-                                    </div>
-                                    <Link href={`/doctors/${doctors.id}`}>
-                                        <Button className="border  hover:text-red-600" variant={"secondary"}>See Detail</Button>
-                                    </Link>
-                                </CardFooter>
-                            </Card>)
-                        )
+                   
+                {
+                        requests.map((request) => 
+                        (<DoctorCard key={request._id} request={request} isAdmin={false}/>)
+                    )
                     }
+
 
                 </div>
 

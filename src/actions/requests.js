@@ -1,7 +1,6 @@
 
 "use server";
 
-import { toast } from "@/hooks/use-toast";
 import { revalidatePath } from "next/cache";
 
 export async function addRequest(data) {
@@ -14,8 +13,8 @@ export async function addRequest(data) {
 };
 
 
-export async function getRequest() {
-    let request = await fetch(`${process.env.BASE_URL}api/requests`);
+export async function getRequest(status) {
+    let request = await fetch(`${process.env.BASE_URL}api/requests?status=${status ? status : ""}`);
     request = request.json();
 
     return request;

@@ -23,15 +23,15 @@ export default function DoctorRequests({ requests, status }) {
     type: null,
     requestId: null,
   });
-  const [activeFilter, setActiveFilter] = useState(status || "all");
+  const [activeFilter, setActiveFilter] = useState(status);
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
 
-  const countRequestsByStatus = (status) => {
-    return requests.filter(request => status === 'all' || request.status === status).length;
-  }
+  // const countRequestsByStatus = (status) => {
+  //   return requests.filter(request => status === 'all' || request.status === status).length;
+  // }
 
   const handleAction = (type, requestId) => {
     setSelectedAction({ type, requestId });
@@ -47,23 +47,23 @@ export default function DoctorRequests({ requests, status }) {
     setDialogOpen(false);
   };
 
-  const filteredRequests = requests.filter(
-    (request) => activeFilter === "all" || request.status === activeFilter
-  );
-
+ 
 
   useEffect(() => {
     const params = new URLSearchParams(searchParams);
-    if (activeFilter) {
-      params.set('query', activeFilter);
-    } else {
-      params.delete('query');
+    if(activeFilter){
+      params.set('status', activeFilter);
+    }else{
+      params.delete('status');
     }
     replace(`${pathname}?${params.toString()}`);
 
     console.log("Params",params)
-  }, [activeFilter])
+  },[activeFilter])
 
+//  const filteredRequests = requests.filter(
+//     (request) => activeFilter === "all" || request.status === activeFilter
+//   );
 
 
   const renderRequestCard = (request) => (
@@ -78,20 +78,46 @@ export default function DoctorRequests({ requests, status }) {
 
   return (
     <>
-      <div className="grid  w-full gap-4 md:w-1/2 mx-auto grid-cols-4">
-        {["all", "pending", "accepted", "rejected"].map((filter) => (
-          <div
-            key={filter}
-            className={`border-secondary   font-sans cursor-pointer  my-4 text-center border  shadow rounded ${activeFilter === filter ? "bg-primary text-white" : ""
-              }`}
-            onClick={() => setActiveFilter(filter)}
-          >
-            {filter.charAt(0).toUpperCase() + filter.slice(1)} ({countRequestsByStatus(filter)})
-          </div>
-        ))}
+       <div className="grid w-full gap-4 md:w-1/2 mx-auto grid-cols-4">
+        <div
+          className={`border-secondory cursor-pointer p-3 my-4 text-center justify-center border rounded ${
+            activeFilter == "all" && "bg-primary text-center text-white"
+          }`}
+          value="all"
+          onClick={() => setActiveFilter("all")}
+        >
+          All
+        </div>
+        <div
+          className={`border-secondory cursor-pointer flex px-1 items-center my-4 justify-center text-center border rounded ${
+            activeFilter == "pending" && "bg-primary text-center text-white"
+          }`}
+          value="pending"
+          onClick={() => setActiveFilter("pending")}
+        >
+          Pending
+        </div>
+        <div
+          className={`border-secondory cursor-pointer flex px-1 items-center my-4 justify-center text-center border rounded ${
+            activeFilter == "accepted" && "bg-primary text-center text-white"
+          }`}
+          value="accepted"
+          onClick={() => setActiveFilter("accepted")}
+        >
+          Accepted
+        </div>
+        <div
+          className={`border-secondory cursor-pointer flex text-center px-1 items-center justify-center my-4 border rounded ${
+            activeFilter == "rejected" && "bg-primary text-center text-white"
+          }`}
+          value="rejected"
+          onClick={() => setActiveFilter("rejected")}
+        >
+          Rejected
+        </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filteredRequests.map(renderRequestCard)}
+        {requests.map(renderRequestCard)}
       </div>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>

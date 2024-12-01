@@ -160,9 +160,22 @@ export default function DoctorForm({ session }) {
                   <FormItem>
                     <FormLabel><b>Appointment Time</b></FormLabel>
                     <FormControl>
-                      {/* <Input placeholder="Available times (e.g., 9 AM - 5 PM)" {...field} />
-                   */}
-                      <DatePicker />
+                      <Input placeholder="Available times (e.g., 9 AM - 5 PM)" {...field} />
+                  
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="Date"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel><b>Date</b></FormLabel>
+                    <FormControl>
+                    <DatePicker />
+
                     </FormControl>
                     <FormMessage />
                   </FormItem>
