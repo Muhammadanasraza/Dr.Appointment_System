@@ -111,8 +111,10 @@ const DoctorCard = ({ request, isAdmin, onAccept, onReject }) => (
             ) : (
                 <Link href={`/doctors/${request._id}`}>
                     <Button>Book Appointment</Button>
+                  
                 </Link>
             )}
+            
         </CardFooter>
     </Card>
 

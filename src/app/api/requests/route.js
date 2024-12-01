@@ -1,5 +1,6 @@
 import connectDb from "@/lib/connectDb";
 import { RequestModal } from "@/lib/models/RequestModal";
+import { UserModal } from "@/lib/models/UserModal";
 
 
 
@@ -71,13 +72,17 @@ export async function PUT(req) {
     await connectDb()
     try {
         const obj = await req.json();
-        const { id, status } = obj;
+        let { id, status } = obj;
+        const request = await RequestModal.findOne({ _id: id });
+    
+        await UserModal.findOneAndUpdate({ _id: request.user }, { roll: "doctor" });
 
         const updated = await RequestModal.findOneAndUpdate({
             _id: id
         }, {
             status: status
         }).exec();
+
         return Response.json(
             {
                 error: false,

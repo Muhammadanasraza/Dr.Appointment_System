@@ -20,7 +20,7 @@ export default async function Requests({ searchParams }) {
                 {" Doctor's"} Request
             </h1>
 
-            <DoctorRequests requests={requests} />
+            <DoctorRequests status={status} requests={requests} />
 
 
 
