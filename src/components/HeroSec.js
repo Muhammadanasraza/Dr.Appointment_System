@@ -51,7 +51,7 @@ export default async function HeroSec() {
                             //   width={400}
                             //   height={400}
                             fill="true"
-                            src="https://img.freepik.com/free-photo/young-handsome-physician-medical-robe-with-stethoscope_1303-17820.jpg?ga=GA1.1.518592586.1717923796&semt=ais_hybrid"
+                            src="https://media.istockphoto.com/id/1178807250/photo/doctor-shows-a-sign-of-protection-of-health.jpg?s=612x612&w=0&k=20&c=8bejV7NZOwR4CP31DfqBK8UKOwWLU0Q8kdgWS4ACrA0="
                             alt="mockup"
                         />
                     </div>

@@ -20,7 +20,7 @@ import { CheckIcon } from "@radix-ui/react-icons";
 const DoctorCard = ({ request, isAdmin, onAccept, onReject }) => (
 
 
-    <Card className="" key={request._id}>
+    < Card className="" key={request._id} >
         <CardHeader className="flex flex-row items-center space-x-4">
             <Avatar className="h-10 w-10  ">
                 <AvatarImage className="rounded-full" src={request?.user?.picture} alt={request?.user?.firstName} />
@@ -32,7 +32,7 @@ const DoctorCard = ({ request, isAdmin, onAccept, onReject }) => (
             <div>
                 <CardTitle>{`${request.user.firstName} ${request.user.lastName || ""}`}</CardTitle>
                 <CardDescription className="capitalize text-left">
-                    {request.status}
+                    { isAdmin ? request.status : request.specialization}
                 </CardDescription>
             </div>
         </CardHeader>
@@ -111,12 +111,12 @@ const DoctorCard = ({ request, isAdmin, onAccept, onReject }) => (
             ) : (
                 <Link href={`/doctors/${request._id}`}>
                     <Button>Book Appointment</Button>
-                  
+
                 </Link>
             )}
-            
+
         </CardFooter>
-    </Card>
+    </Card >
 
 
 

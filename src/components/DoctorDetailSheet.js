@@ -25,7 +25,7 @@ export default function DoctorDetailSheet({ request }) {
             <SheetTrigger asChild >
                 <div className="p-2 hover:bg-gray-100 rounded-full">
                     <EyeIcon className="h-5 w-5" />
-                    <span className="sr-only">View doctor details</span>
+                    {/* <span className="sr-only">View doctor details</span> */}
                 </div>
             </SheetTrigger>
             <SheetContent>

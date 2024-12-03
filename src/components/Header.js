@@ -34,7 +34,7 @@ export default async function Header() {
 
     return (
         <>
-            <nav className="bg-gray-100  container items-center mx-auto border-gray-200 dark:bg-gray-900">
+            <nav className="bg-gray-100 items-center mx-auto border-gray-200 dark:bg-gray-900">
                 <div className="max-w-screen-xl  flex flex-wrap items-center justify-between mx-auto p-4">
                     <a
                         href="#"
@@ -65,8 +65,8 @@ export default async function Header() {
                                     <DropdownMenuTrigger asChild>
                                         {/* <Button variant="outline">Open</Button> */}
                                         <Avatar>
-                                            <AvatarImage src={session?.user?.image} alt="@shadcn" />
-                                            <AvatarFallback>CN</AvatarFallback>
+                                            <AvatarImage className="cursor-pointer" src={session?.user?.image} alt="@shadcn" />
+                                            <AvatarFallback>pic</AvatarFallback>
                                         </Avatar>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className="w-56">
