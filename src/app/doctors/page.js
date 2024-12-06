@@ -16,7 +16,7 @@ import DoctorCard from "@/components/DoctorCard"
 
 
 
-export default async function DoctorPage({ isHome }) {
+export default async function DoctorPage() {
 
 
     // const filtered = isHome ? doctors.slice(0, 6) : doctors;

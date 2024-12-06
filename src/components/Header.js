@@ -61,7 +61,9 @@ export default async function Header() {
 
                             :
                             <div>
+                              
                                 <DropdownMenu>
+                                    
                                     <DropdownMenuTrigger asChild>
                                         {/* <Button variant="outline">Open</Button> */}
                                         <Avatar>
@@ -73,19 +75,25 @@ export default async function Header() {
                                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                         <DropdownMenuSeparator />
                                         <DropdownMenuGroup>
+                                            <Link href="/">
+                                                <DropdownMenuItem>
+                                                    Home
+                                                    <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
+                                                </DropdownMenuItem>
+                                            </Link>
                                             <Link href="/profile">
                                                 <DropdownMenuItem>
                                                     Profile
                                                     <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
                                             </Link>
-                                           <Link href="/admin/requests">
+                                            <Link href="/admin/requests">
                                                 <DropdownMenuItem>
                                                     My Requests
                                                     <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
-                                            </Link> 
-                                            
+                                            </Link>
+
                                             <Link href="/appointment">
                                                 <DropdownMenuItem>
                                                     My Appointment
@@ -107,6 +115,7 @@ export default async function Header() {
 
 
                                     </DropdownMenuContent>
+                                    
                                 </DropdownMenu>
 
                             </div>

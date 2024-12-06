@@ -110,7 +110,7 @@ const DoctorCard = ({ request, isAdmin, onAccept, onReject }) => (
                 </div>
             ) : (
                 <Link href={`/doctors/${request._id}`}>
-                    <Button>Book Appointment</Button>
+                    <Button>See Detail</Button>
 
                 </Link>
             )}

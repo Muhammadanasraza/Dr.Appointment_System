@@ -11,7 +11,7 @@ export async function GET(req, { params }) {
     await connectDb()
     console.log("params",params)
     
-    const requests = await RequestModal.findOne({ _id: params._id}).populate("user");
+    const requests = await RequestModal.findOne({ _id: params.id}).populate("user");
 
     console.log("dataaaaa", requests)   
     return Response.json(
