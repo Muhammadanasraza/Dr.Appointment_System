@@ -36,15 +36,15 @@ export default function DoctorDetailSheet({ request }) {
                             <Avatar className="h-24 w-24">
                                 <AvatarImage
                                     src={request?.user?.picture}
-                                    alt={`${request?.user?.firstName}`}
+                                    alt={`${request.firstName}`}
                                 />
                                 <AvatarFallback>
-                                    {request.user?.firstName?.charAt(0)}
+                                    {request.firstName?.charAt(0)}
                                     {request.user?.lastName?.charAt(0)}
                                 </AvatarFallback>
                             </Avatar>
                             <SheetTitle className="font-bold text-2xl text-center">
-                                {`${request.user.firstName} ${request.user.lastName}`}
+                                {`${request.firstName} ${request.lastName}`}
                             </SheetTitle>
                         </div>
                     </SheetDescription>

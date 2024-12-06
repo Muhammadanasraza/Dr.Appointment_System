@@ -13,7 +13,7 @@ export default async function Requests({ searchParams }) {
 
     const { requests } = await getRequest(status);
     console.log("request--==>>>", requests)
-
+    
     return (
         <div className="max-w-screen-xl container text-center my-5 p-4 mx-auto">
             <h1 className="text-3xl text-left font-sans mb-6 font-bold">

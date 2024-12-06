@@ -1,15 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { getSingleRequest } from "@/actions/requests";
 import Image from "next/image";
-import { User, Briefcase, MapPin, Clock, DollarSign, GraduationCap, Calendar, Mail, Phone, Building } from 'lucide-react';
+import { User, Briefcase, MapPin, Clock, DollarSign, GraduationCap, Calendar, Mail, Phone, Building} from 'lucide-react';
 import { DatePicker } from "@/components/DatePikker";
 import { auth } from "../../../../auth";
-import Link from "next/link"
 
 export default async function DoctorDetailPage({ params }) {
   const session = await auth()
   const request = await getSingleRequest(params.id);
-  const { user, ...doctorInfo } = request?.requests || {};
+  console.log("rewueee",request)
+  const { user, ...doctorInfo } = request;
+  console.log("doctornnnnnnn",doctorInfo)
+const data = doctorInfo.requests;
+console.log("dataaaa",data)
 
   if (!doctorInfo) {
     return <div className="text-center py-10">Doctor not found</div>;
@@ -21,16 +24,16 @@ export default async function DoctorDetailPage({ params }) {
         <Image
           width={128}
           height={128}
-          src={user?.picture || '/placeholder.svg'}
-          alt={`${user?.firstName}'s Profile Picture`}
+          src={data?.user.picture || '/placeholder.svg'}
+          alt={`${data?.user.firstName}'s Profile Picture`}
           className="w-32 h-32 rounded-full border-4 border-primary mb-4 md:mb-0 md:mr-6"
         />
         <div className="text-center md:text-left">
-          <h1 className="text-3xl font-bold text-gray-800">{user?.firstName} {user?.lastName}</h1>
-          <p className="text-primary text-lg">{doctorInfo?.specialization}</p>
+          <h1 className="text-3xl font-bold text-gray-800">{data?.user.firstName} {data?.user.lastName}</h1>
+          <p className="text-primary text-lg">{data?.specialization}</p>
           <p className="text-gray-600 mt-2 flex items-center justify-center md:justify-start">
             <MapPin className="w-4 h-4 mr-2" />
-            {doctorInfo?.hospital}
+            {data?.hospital}
           </p>
         </div>
       </div>
@@ -44,15 +47,15 @@ export default async function DoctorDetailPage({ params }) {
           <div className="space-y-2">
             <p className="text-gray-600 flex items-center">
               <Clock className="w-4 h-4 mr-2" />
-              <strong>Time:</strong> {doctorInfo?.appointmentTime || 'Not specified'}
+              <strong>Time:</strong> {data?.appointmentTime || 'Not specified'}
             </p>
             <p className="text-gray-600 flex items-center">
               <DollarSign className="w-4 h-4 mr-2" />
-              <strong>Fees:</strong> {doctorInfo?.fees}
+              <strong>Fees:</strong> {data?.fees}
             </p>
             <p className="text-gray-600 flex items-center">
               <User className="w-4 h-4 mr-2" />
-              <strong>Gender:</strong> {doctorInfo?.gender}
+              <strong>Gender:</strong> {data?.gender}
             </p>
           </div>
         </section>
@@ -65,14 +68,14 @@ export default async function DoctorDetailPage({ params }) {
           <div className="space-y-2">
             <p className="text-gray-600 flex items-center">
               <GraduationCap className="w-4 h-4 mr-2" />
-              <strong>Degree:</strong> {doctorInfo?.degree}
+              <strong>Degree:</strong> {data?.degree}
             </p>
             <p className="text-gray-600 flex items-center">
               <Briefcase className="w-4 h-4 mr-2" />
-              <strong>Experience:</strong> {doctorInfo?.experience}
+              <strong>Experience:</strong> {data?.experience}
             </p>
             <p className="text-gray-600">
-              <strong>Bio:</strong> {doctorInfo?.bio}
+              <strong>Bio:</strong> {data?.bio}
             </p>
           </div>
         </section>
@@ -85,15 +88,15 @@ export default async function DoctorDetailPage({ params }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <p className="text-gray-600 flex items-center">
               <Mail className="w-4 h-4 mr-2" />
-              <strong>Email:</strong> {user?.email}
+              <strong>Email:</strong> {data?.user.email}
             </p>
             <p className="text-gray-600 flex items-center">
               <Phone className="w-4 h-4 mr-2" />
-              <strong>Phone:</strong> {doctorInfo?.number}
+              <strong>Phone:</strong> {data?.number}
             </p>
             <p className="text-gray-600 flex items-center md:col-span-2">
               <Building className="w-4 h-4 mr-2" />
-              <strong>Office Address:</strong> {doctorInfo?.address}
+              <strong>Office Address:</strong> {data?.address}
             </p>
           </div>
         </section>
@@ -104,23 +107,10 @@ export default async function DoctorDetailPage({ params }) {
           <Calendar className="w-5 h-5 mr-2" />
           Select Appointment Date
         </h2>
-        <DatePicker />
+        <DatePicker session={session} request={request} />
       </div>
 
-      <div className="mt-8 flex justify-center">
-        {
-          session ? (
-            <Button className="transition-all w-full duration-300 ease-in-out transform hover:scale-105">
-              Book an Appointment
-            </Button>)
-            : (
-              <Link href="/signin">
-                <Button className="transition-all w-full duration-300 ease-in-out transform hover:scale-105">
-                  Login To Book Appoinment
-                </Button>
-              </Link>)
-        }
-      </div>
+    
     </div>
   );
 }
