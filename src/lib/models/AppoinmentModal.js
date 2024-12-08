@@ -4,14 +4,15 @@ const { Schema } = mongoose;
 
 const appoinmentSchema = new Schema({
 
-    user: { type: mongoose.Types.ObjectId, ref: "Users" },
-    request: { type: mongoose.Types.ObjectId, ref: "Requests" },
-    dat: date,
+    user: { type: mongoose.Types.ObjectId, ref: "user" },
+    request: { type: mongoose.Types.ObjectId, ref: "request" },
+    
     status: {
         type: String,
         default: "pending",
         enum: ["pending", "accepted", "cancelled", "visited", " reviewed", "Missed"],
     },
+    date: Date
 
 }, {
     timestamps: true

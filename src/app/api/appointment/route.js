@@ -1,7 +1,6 @@
 import connectDb from "@/lib/connectDb";
 import { AppointmentModal } from "@/lib/models/AppoinmentModal";
 
-import { UserModal } from "@/lib/models/UserModal"
 
 
 
@@ -37,18 +36,24 @@ export async function POST(req) {
 export async function GET(req) {
 
     await connectDb()
-
     const query = {};
+    console.log("query", query)
     const doctor = req?.nextUrl?.searchParams?.get("doctor");
+    console.log("doctors", doctor)
     const user = req?.nextUrl?.searchParams?.get("user");
+    console.log("user", user)
     if (doctor) query.request = doctor;
     if (user) query.user = user;
-    const appointment = await AppointmentModal.find(query).populate("user").populate("request");
 
+    const appointments = await AppointmentModal.find(query)
+        .populate("user")
+        .populate("request");
+    console.log("appointments", appointments)
     return Response.json({
         error: false,
-        msg: "appointment fetched Successfully",
-        appointment: appointment
+        msg: "Appointment fetched Successfully",
+        appointments,
+
     }, { status: 200 })
 
 }

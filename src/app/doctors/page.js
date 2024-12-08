@@ -19,7 +19,7 @@ import DoctorCard from "@/components/DoctorCard"
 export default async function DoctorPage() {
 
 
-    // const filtered = isHome ? doctors.slice(0, 6) : doctors;
+// const filtered = isHome ? doctors.slice(0, 6) : doctors;
     
     const {requests} = await getRequest("accepted")
 
