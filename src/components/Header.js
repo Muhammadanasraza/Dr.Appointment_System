@@ -28,7 +28,10 @@ import { auth, signOut } from "../../auth"
 export default async function Header() {
 
     const session = await auth();
-    console.log("sess=>>>", session)
+    console.log("session=>>>", session)
+    // const admin = session.user="admin"
+
+    // console.log("admin",admin)
 
     // console.log("session me kiya hai bhai=>>>",session)
 
@@ -61,9 +64,9 @@ export default async function Header() {
 
                             :
                             <div>
-                              
+
                                 <DropdownMenu>
-                                    
+
                                     <DropdownMenuTrigger asChild>
                                         {/* <Button variant="outline">Open</Button> */}
                                         <Avatar>
@@ -87,12 +90,14 @@ export default async function Header() {
                                                     <DropdownMenuShortcut>⇧⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
                                             </Link>
+
                                             <Link href="/admin/requests">
                                                 <DropdownMenuItem>
                                                     My Requests
                                                     <DropdownMenuShortcut>⌘</DropdownMenuShortcut>
                                                 </DropdownMenuItem>
                                             </Link>
+
 
                                             <Link href="/appointment">
                                                 <DropdownMenuItem>
@@ -115,7 +120,7 @@ export default async function Header() {
 
 
                                     </DropdownMenuContent>
-                                    
+
                                 </DropdownMenu>
 
                             </div>

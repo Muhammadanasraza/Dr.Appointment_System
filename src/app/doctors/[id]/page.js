@@ -107,7 +107,7 @@ console.log("dataaaa",data)
           <Calendar className="w-5 h-5 mr-2" />
           Select Appointment Date
         </h2>
-        <DatePicker session={session} request={request} />
+        <DatePicker session={session} request={params.id} />
       </div>
 
     

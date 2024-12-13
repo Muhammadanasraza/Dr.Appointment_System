@@ -4,7 +4,6 @@ import { AppointmentModal } from "@/lib/models/AppoinmentModal";
 
 
 
-
 export async function POST(req) {
 
     await connectDb()
@@ -18,7 +17,7 @@ export async function POST(req) {
         return Response.json({
             error: false,
             msg: "Your Appointment Is Booked ,",
-            appointment: newAppointment
+            appointment : newAppointment
 
         }, { status: 201 })
 

@@ -4,9 +4,8 @@ const { Schema } = mongoose;
 
 const appoinmentSchema = new Schema({
 
-    user: { type: mongoose.Types.ObjectId, ref: "user" },
-    request: { type: mongoose.Types.ObjectId, ref: "request" },
-    
+    user: { type: mongoose.Types.ObjectId, ref: "Users" },
+    request: { type: mongoose.Types.ObjectId, ref: "Requests" },
     status: {
         type: String,
         default: "pending",
