@@ -17,7 +17,7 @@ export async function POST(req) {
         return Response.json({
             error: false,
             msg: "Your Appointment Is Booked ,",
-            appointment : newAppointment
+            appointment: newAppointment
 
         }, { status: 201 })
 
@@ -33,7 +33,6 @@ export async function POST(req) {
 
 
 export async function GET(req) {
-
     await connectDb()
     const query = {};
     console.log("query", query)
@@ -47,7 +46,7 @@ export async function GET(req) {
     const appointments = await AppointmentModal.find(query)
         .populate("user")
         .populate("request");
-    console.log("appointments", appointments)
+    console.log("appointments......", appointments)
     return Response.json({
         error: false,
         msg: "Appointment fetched Successfully",

@@ -7,7 +7,7 @@ import { getAppointment } from "@/actions/appointment";
 export default async function Appointment() {
     const session = await auth();
     // console.log("sessionmain",session)
-    const appointments  = await getAppointment("user", session.user.id)
+    const appointments  = await getAppointment("user", session?.user?.id)
     console.log("Appointment", appointments)
 
     return (
